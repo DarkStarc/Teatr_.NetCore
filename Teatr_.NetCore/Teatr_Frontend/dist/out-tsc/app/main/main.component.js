@@ -10,19 +10,20 @@ MainViewComponent = __decorate([
         main{
             padding-top:-50px;
         }
+
         div.carousel{
             width:100%;  
         }
         span.user-carousel-caption {
             z-index: 2;
+            position:absolute;
             margin:auto;
-            font-family: 'Yeseva One', cursive;
             color:white;
             font-size:2.2vmax;
             left: 0;
             top:10vmax;
             right: 0;
-            text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.5);
+            color: white;
             width:40vmax;
         }
     `]

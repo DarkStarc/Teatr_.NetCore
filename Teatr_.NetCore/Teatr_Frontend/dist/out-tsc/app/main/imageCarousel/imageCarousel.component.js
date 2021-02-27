@@ -15,11 +15,24 @@ __decorate([
 ImageCarousel = __decorate([
     Component({
         selector: 'div.carousel-inner',
-        template: `<div *ngFor="let path of paths; let i = index" data-interval="5000" style="height:inherit" class="carousel-item" [class.active]="i==0">
+        styles: [`
+	.carousel-control-next, .carousel-control-prev {
+		width:7% !important;
+	}`],
+        template: `<div *ngFor="let path of paths; let i = index" data-interval="5000" style="height:inherit; filter:contrast(120%) brightness(0.5) blur(1px);" class="carousel-item" [class.active]="i==0">
 					<div [style.background-image]="'url('+path+')'" style="height:inherit;
 										background-repeat:no-repeat; background-size:cover;background-position: center;">
 					</div>						
-			   </div>`,
+			   </div>
+ <a class="carousel-control-prev" href="#image-carousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#image-carousel" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+`,
         providers: [HttpService]
     })
 ], ImageCarousel);

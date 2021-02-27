@@ -1,37 +1,28 @@
 import { __decorate } from "tslib";
 import { Component } from '@angular/core';
 import { HttpService } from '../../http.service';
+import { ImageComponent } from '../../image.component';
 let PromotionComponent = class PromotionComponent {
     constructor(httpService) {
         this.httpService = httpService;
+        this.images = new Array();
         this.isMaximize = false;
-    }
-    maximize() {
-        this.isMaximize = !this.isMaximize;
     }
     ngOnInit() {
         this.httpService.getImagesPaths("Promotion").subscribe(data => {
-            console.log(data);
+            data.map(dataItem => {
+                let buf = new ImageComponent();
+                buf.path = dataItem;
+                this.images.push(buf);
+            });
         });
     }
 };
 PromotionComponent = __decorate([
     Component({
         selector: 'div.promotion-content',
-        styles: [`
-            div.promotion-item{
-                width: 85vmin;
-                border:2px solid #93a73e;
-            }
-            .promotion-item-img{
-                width: 100%;
-                height:auto;
-                border-radius:5vmin;
-                padding:2vmax;
-            }
-           
-`],
         templateUrl: "promotion.html",
+        styleUrls: ['./promotion.css'],
         providers: [HttpService]
     })
 ], PromotionComponent);

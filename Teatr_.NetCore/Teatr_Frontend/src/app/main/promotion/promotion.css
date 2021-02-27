@@ -1,0 +1,28 @@
+﻿div.columns {
+    width:100vw;
+    padding:1vw;    
+    display:flex;
+    flex-wrap:wrap;
+}
+div.image {
+    border: 3px solid #CDD973;
+    border-radius: 1rem !important;
+    background-color: #e0e6b1;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+    margin: 1vmin;
+    max-width: 50vw;
+    max-height: 70vh;
+}
+div.columns div{
+    display:flex;
+    margin:auto;
+}
+@media screen and (max-width: 900px) 
+{
+    div.columns{
+        column-count: 1;
+    }
+    div.image {
+        max-width:80vw!important;
+    }
+}

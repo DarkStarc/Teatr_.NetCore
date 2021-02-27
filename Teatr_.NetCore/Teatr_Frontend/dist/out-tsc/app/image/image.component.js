@@ -1,14 +1,39 @@
-﻿import { Component,Input } from '@angular/core';
-
-@Component({
-    selector: 'div.image',
-    template: `
-    <img class="p-4" [attr.src]='path' [style.height]='height' [style.width]='width' [style.max-height]='MxHeight' [style.max-width]='MxWidth'
-                        (click)="Maximize()" [class.btn] = "CanMaximize">
+import { __decorate } from "tslib";
+import { Component, Input } from '@angular/core';
+let ImageComponent = class ImageComponent {
+    constructor() {
+        this.height = "auto";
+        this.width = "auto";
+        this.CanMaximize = false;
+        this.IsMaximize = false;
+    }
+    Maximize() {
+        if (this.CanMaximize) {
+            this.IsMaximize = !this.IsMaximize;
+        }
+    }
+};
+__decorate([
+    Input()
+], ImageComponent.prototype, "path", void 0);
+__decorate([
+    Input()
+], ImageComponent.prototype, "height", void 0);
+__decorate([
+    Input()
+], ImageComponent.prototype, "width", void 0);
+__decorate([
+    Input()
+], ImageComponent.prototype, "CanMaximize", void 0);
+ImageComponent = __decorate([
+    Component({
+        selector: 'div.image',
+        template: `
+    <img class="p-4" [attr.src]='path' [style.height]='height' [style.width]='width' (click)="Maximize()" [class.btn] = "CanMaximize">
     <img *ngIf='IsMaximize' class="maximizeImage" [attr.src]='path' (click)="Maximize()">
     <div *ngIf="CanMaximize" class="background btn"  [class.active] = "IsMaximize" (click)="Maximize()" ></div>
     `,
-    styles: [`
+        styles: [`
         img{
             border-radius:5vh!important;
             max-height:inherit;
@@ -30,13 +55,14 @@
             bottom:0;
             left:0;
             right:0;
-            padding:4vmin;
             margin:auto;
             z-index:10000;
             height:100vh !important;
             width:auto !important;
-            max-height:initial !important;
-            max-width:initial !important;
+
+        }
+        @keyframes Maximize{
+            
         }
         .background.active{
             display:block !important;
@@ -49,23 +75,7 @@
         }
 
     `],
-})
-
-
-export class ImageComponent {
-    @Input() path: string;
-    @Input() height: string = "auto";
-    @Input() width: string = "auto";
-    @Input() MxHeight: string = "auto";
-    @Input() MxWidth: string = "auto";
-    @Input() CanMaximize: boolean = false;
-    IsMaximize: boolean = false;
-
-
-
-    Maximize() {
-        if (this.CanMaximize) {
-            this.IsMaximize = !this.IsMaximize;
-        }
-    }
-}
+    })
+], ImageComponent);
+export { ImageComponent };
+//# sourceMappingURL=image.component.js.map

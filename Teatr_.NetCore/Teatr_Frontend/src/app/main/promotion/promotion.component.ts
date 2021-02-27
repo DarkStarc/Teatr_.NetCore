@@ -4,19 +4,8 @@ import { ImageComponent } from '../../image.component';
 
 @Component({
     selector: 'div.promotion-content',
-    styles: [`
-            div.promotion-item{
-                border:2px solid #93a73e;
-            }
-            .promotion-item-img{
-                width: 100%;
-                height:auto;
-                border-radius:5vmin;
-                padding:2vmax;
-            }
-           
-`],
-    templateUrl:"promotion.html" ,
+    templateUrl: "promotion.html",
+    styleUrls:['./promotion.css'],
     providers: [HttpService]
 })
 export class PromotionComponent implements OnInit
@@ -30,9 +19,9 @@ export class PromotionComponent implements OnInit
 
     ngOnInit() {
         this.httpService.getImagesPaths("Promotion").subscribe(data => {
-            data.map(path => {
+            data.map(dataItem=> {
                 let buf = new ImageComponent();
-                buf.path = path;
+                buf.path = dataItem;
                 this.images.push(buf);
             })
         });
