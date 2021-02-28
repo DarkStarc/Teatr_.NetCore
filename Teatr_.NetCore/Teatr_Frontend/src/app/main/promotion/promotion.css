@@ -1,22 +1,45 @@
 ﻿div.columns {
-    width:100vw;
-    padding:1vw;    
-    display:flex;
-    flex-wrap:wrap;
+    width:  90%;
+    margin: auto;
+    margin-top: 2vh;
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content:center;
 }
 div.image {
-    border: 3px solid #CDD973;
-    border-radius: 1rem !important;
-    background-color: #e0e6b1;
-    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
-    margin: 1vmin;
+    margin: 4vmin !important;
     max-width: 50vw;
     max-height: 70vh;
+    background: linear-gradient(to right, #2b2b2b 0%, #2b2b2b 20%, transparent 20%, transparent 80%, #2b2b2b 80%, #2b2b2b 100%), linear-gradient(to right, #2b2b2b 0%, #2b2b2b 20%, transparent 20%, transparent 80%, #2b2b2b 80%, #2b2b2b 100%), linear-gradient(to bottom, #2b2b2b 0%, #2b2b2b 20%, transparent 20%, transparent 80%, #2b2b2b 80%, #2b2b2b 100%), linear-gradient(to bottom, #2b2b2b 0%, #2b2b2b 20%, transparent 20%, transparent 80%, #2b2b2b 80%, #2b2b2b 100%);
+    background-size: 100% 2px, 100% 2px, 2px 100%, 2px 100%;
+    background-position: 0 0, 0 100%, 0 0, 100% 0;
+    background-repeat: no-repeat;
 }
 div.columns div{
     display:flex;
     margin:auto;
 }
+.border-line {
+    position: absolute;
+    width: 30%;
+    height: 30%;
+}
+.border-line.top{
+    border-top:2px solid #2b2b2b;
+}
+.border-line.left{
+    border-left:2px solid #2b2b2b;
+}
+.border-line.right{
+    border-right:2px solid #2b2b2b;
+    margin-left:55% !important;
+}
+.border-line.bottom{
+    border-bottom:2px solid #2b2b2b;
+    margin-top:61% !important;
+}
+
 @media screen and (max-width: 900px) 
 {
     div.columns{

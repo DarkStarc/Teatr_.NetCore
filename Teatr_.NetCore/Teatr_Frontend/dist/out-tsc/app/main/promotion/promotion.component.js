@@ -1,7 +1,7 @@
 import { __decorate } from "tslib";
 import { Component } from '@angular/core';
 import { HttpService } from '../../http.service';
-import { ImageComponent } from '../../image.component';
+import { ImageComponent } from '../../image/image.component';
 let PromotionComponent = class PromotionComponent {
     constructor(httpService) {
         this.httpService = httpService;

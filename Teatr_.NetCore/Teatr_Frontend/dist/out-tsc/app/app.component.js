@@ -6,7 +6,7 @@ AppComponent = __decorate([
     Component({
         selector: 'app-root',
         template: `
-    <nav class="navbar navbar-expand-lg w-100 shadow mb-4"></nav>
+    <nav class="navbar navbar-expand-lg w-100 mt-2 mb-4 position-absolute"></nav>
     <router-outlet></router-outlet>
     `,
     })

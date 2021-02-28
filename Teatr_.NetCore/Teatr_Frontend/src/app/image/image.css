@@ -1,1 +1,53 @@
-﻿
+﻿img {
+    max-height: inherit;
+    max-width: inherit;
+}
+
+div.background {
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background-color: rgba(0,0,0,0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity:0;
+}
+
+.maximizeImage {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index:-1;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    padding: 4vmin;
+    margin: auto;
+    transition-duration:1s;
+    height: 100vh !important;
+    width: auto !important;
+    max-height: initial !important;
+    max-width: initial !important;
+}
+.maximizeImage:hover{
+    cursor:pointer;
+}
+
+.active {
+   animation:maximize 1s;
+   z-index:10000 !important;
+   animation-fill-mode:forwards;
+   opacity: 1 !important;
+}
+
+.background.active {
+    z-index: 999 !important; 
+}
+
+@media screen and (max-width: 900px) {
+    .maximizeImage {
+        width: 100vw !important;
+        height: auto !important
+    }
+}

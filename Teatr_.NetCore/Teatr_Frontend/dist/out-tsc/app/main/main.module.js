@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { ImageCarousel } from './imageCarousel/imageCarousel.component';
 import { PromotionComponent } from './promotion/promotion.component';
 import { MainViewComponent } from './main.component';
-import { ImageComponent } from '../image.component';
+import { ImageComponent } from '../image/image.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';

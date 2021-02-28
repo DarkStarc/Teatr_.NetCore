@@ -17,12 +17,13 @@ MainViewComponent = __decorate([
         span.user-carousel-caption {
             z-index: 2;
             position:absolute;
-            margin:auto;
             color:white;
             font-size:2.2vmax;
             left: 0;
-            top:10vmax;
+            text-align:center;
+            top:12vmax;
             right: 0;
+            margin:auto;
             color: white;
             width:40vmax;
         }

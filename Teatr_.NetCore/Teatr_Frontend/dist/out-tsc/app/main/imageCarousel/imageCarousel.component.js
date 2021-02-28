@@ -18,8 +18,9 @@ ImageCarousel = __decorate([
         styles: [`
 	.carousel-control-next, .carousel-control-prev {
 		width:7% !important;
+		opacity:0.1 !important;
 	}`],
-        template: `<div *ngFor="let path of paths; let i = index" data-interval="5000" style="height:inherit; filter:contrast(120%) brightness(0.5) blur(1px);" class="carousel-item" [class.active]="i==0">
+        template: `<div *ngFor="let path of paths; let i = index" data-interval="5000" style="height:inherit; filter:contrast(130%) brightness(0.5) blur(2px);" class="carousel-item" [class.active]="i==0">
 					<div [style.background-image]="'url('+path+')'" style="height:inherit;
 										background-repeat:no-repeat; background-size:cover;background-position: center;">
 					</div>						

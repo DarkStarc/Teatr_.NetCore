@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../../http.service';
-import { ImageComponent } from '../../image.component';
+import { ImageComponent } from '../../image/image.component';
 
 @Component({
     selector: 'div.promotion-content',

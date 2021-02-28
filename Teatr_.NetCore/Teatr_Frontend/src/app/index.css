@@ -2,25 +2,30 @@
 body {
     font-family: 'Comfortaa', cursive !important;
     height: 300vh;
-    background-color: #ECF2BD!important;
-    overflow-x:hidden;
+
+    overflow-x: hidden;
 }
 div.caption {
     text-align: center;
     margin: auto 25px;
     font-size: 3vmax;
     font-weight: 600;
-    color: black;
     margin-top: 3vmax;
 }
 div.caption span{
-    border:3px solid #CDD973;
-    background-color: #e0e6b1;
-    padding:3.5vmin 25vw;
+    padding:1rem;
+    color:#2b2b2b;
+    border-bottom:2px solid #2b2b2b;
+    text-shadow: 3px -3px 5px rgba(153,153,153,0.18);
 }
-div.rounded{
-    border-radius:.5rem !important;
-}
+
 nav {
-    background-color: #CDD973;
+    z-index:2;
+    position:absolute !important;
+}
+@media screen and (max-width: 900px) {
+    nav{
+        position:relative !important;
+        color:black;
+    }
 }

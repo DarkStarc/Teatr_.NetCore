@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ImageComponent } from './image.component';
+import { ImageComponent } from './image/image.component';
 import { map } from 'rxjs/operators';
 
 @Injectable()

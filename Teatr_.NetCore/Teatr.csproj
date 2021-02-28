@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <TypeScriptCompile Include="Teatr_Frontend\src\app\image.component.ts" />
+    <TypeScriptCompile Include="Teatr_Frontend\src\app\image\image.component.ts" />
   </ItemGroup>
 
 
