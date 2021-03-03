@@ -9,8 +9,14 @@ export class HttpService {
 
     constructor(private http: HttpClient) { }
 
-    getImagesPaths(ForHistrionic: string): Observable<string[]> {
-        return this.http.get<string[]>('/api/images/ImagePathList?usedFor=' + ForHistrionic);
+    getImagesPaths(ForHistrionic: string): Observable<ImageComponent[]> {
+        return this.http.get('/api/images/ImagePathList?usedFor=' + ForHistrionic).pipe(map((data: string[]) => {
+            return data.map(function (dataPath) {
+                let buf = new ImageComponent();
+                buf.path = dataPath;
+                return buf;
+            })
+        }));
     }
 
 }

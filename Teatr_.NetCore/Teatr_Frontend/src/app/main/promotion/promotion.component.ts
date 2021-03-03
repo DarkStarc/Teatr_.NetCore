@@ -19,11 +19,6 @@ export class PromotionComponent implements OnInit
 
     ngOnInit() {
         this.httpService.getImagesPaths("Promotion").subscribe(data => {
-            data.map(dataItem=> {
-                let buf = new ImageComponent();
-                buf.path = dataItem;
-                this.images.push(buf);
-            })
         });
        
     }
