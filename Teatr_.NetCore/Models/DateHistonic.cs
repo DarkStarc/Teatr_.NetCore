@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using Teatr.Models;
 namespace Teatr.Models
 {
-    public class Image
+    public class DateHistonic
     {
-        public int ImageId { get; set; }
-        public string Title { get; set; }
-        public string Path { get; set; }
-        public string UsedFor { get; set; }
+        public int DateHistonicId{ get; set; }
+        public DateTime Time { get; set; }
         public IEnumerable<Histonic> Histonics { get; set; }
-        public Image()
+        public DateHistonic()
         {
             Histonics = new List<Histonic>();
         }

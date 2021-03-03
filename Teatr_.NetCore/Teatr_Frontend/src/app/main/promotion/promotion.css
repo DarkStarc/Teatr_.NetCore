@@ -11,33 +11,17 @@ div.image {
     margin: 4vmin !important;
     max-width: 50vw;
     max-height: 70vh;
-    background: linear-gradient(to right, #2b2b2b 0%, #2b2b2b 20%, transparent 20%, transparent 80%, #2b2b2b 80%, #2b2b2b 100%), linear-gradient(to right, #2b2b2b 0%, #2b2b2b 20%, transparent 20%, transparent 80%, #2b2b2b 80%, #2b2b2b 100%), linear-gradient(to bottom, #2b2b2b 0%, #2b2b2b 20%, transparent 20%, transparent 80%, #2b2b2b 80%, #2b2b2b 100%), linear-gradient(to bottom, #2b2b2b 0%, #2b2b2b 20%, transparent 20%, transparent 80%, #2b2b2b 80%, #2b2b2b 100%);
-    background-size: 100% 2px, 100% 2px, 2px 100%, 2px 100%;
-    background-position: 0 0, 0 100%, 0 0, 100% 0;
-    background-repeat: no-repeat;
+    transition:1s;
+    box-shadow: 0px 5px 12px 3px rgba(34, 60, 80, 0.2);
+    background-color: #e5e5e554;
+}
+div.image:hover{
+    background-color: white;
+    box-shadow: 0px 5px 12px 7px rgba(34, 60, 80, 0.2);
 }
 div.columns div{
     display:flex;
     margin:auto;
-}
-.border-line {
-    position: absolute;
-    width: 30%;
-    height: 30%;
-}
-.border-line.top{
-    border-top:2px solid #2b2b2b;
-}
-.border-line.left{
-    border-left:2px solid #2b2b2b;
-}
-.border-line.right{
-    border-right:2px solid #2b2b2b;
-    margin-left:55% !important;
-}
-.border-line.bottom{
-    border-bottom:2px solid #2b2b2b;
-    margin-top:61% !important;
 }
 
 @media screen and (max-width: 900px) 

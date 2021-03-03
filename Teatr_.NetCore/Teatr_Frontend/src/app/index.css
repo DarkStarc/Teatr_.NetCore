@@ -1,14 +1,15 @@
-
+html {
+    font-size: 16px;
+}
 body {
     font-family: 'Comfortaa', cursive !important;
     height: 300vh;
-
     overflow-x: hidden;
 }
 div.caption {
     text-align: center;
     margin: auto 25px;
-    font-size: 3vmax;
+    font-size: 2rem;
     font-weight: 600;
     margin-top: 3vmax;
 }
@@ -27,5 +28,8 @@ nav {
     nav{
         position:relative !important;
         color:black;
+    }
+    html{
+        font-size:14px;
     }
 }
