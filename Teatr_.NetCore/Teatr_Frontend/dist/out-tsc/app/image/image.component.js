@@ -6,6 +6,7 @@ let ImageComponent = class ImageComponent {
         this.width = "auto";
         this.MxHeight = "auto";
         this.MxWidth = "auto";
+        this.Style = "";
         this.CanMaximize = false;
         this.IsMaximize = false;
     }
@@ -32,14 +33,17 @@ __decorate([
 ], ImageComponent.prototype, "MxWidth", void 0);
 __decorate([
     Input()
+], ImageComponent.prototype, "Style", void 0);
+__decorate([
+    Input()
 ], ImageComponent.prototype, "CanMaximize", void 0);
 ImageComponent = __decorate([
     Component({
         selector: 'div.image',
         template: `
-    <img class="p-4" [attr.src]='path' [style.height]='height' [style.width]='width' [style.max-height]='MxHeight' [style.max-width]='MxWidth'
+    <img [attr.src]='path' [style]='Style' [style.height]='height' [style.width]='width' [style.max-height]='MxHeight' [style.max-width]='MxWidth'
                         (click)="Maximize()" [class.btn] = "CanMaximize">
-    <img [class.active] = "IsMaximize" class="maximizeImage" [attr.src]='path' (click)="Maximize()">
+    <img *ngIf="CanMaximize" [class.active] = "IsMaximize" class="maximizeImage" [attr.src]='path' (click)="Maximize()">
     <div *ngIf="CanMaximize" class="background btn"  [class.active] = "IsMaximize" (click)="Maximize()" ></div>
     `,
         styleUrls: ['./image.css'],

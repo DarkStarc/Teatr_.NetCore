@@ -19,6 +19,7 @@ div.image:hover{
     background-color: white;
     box-shadow: 0px 5px 12px 7px rgba(34, 60, 80, 0.2);
 }
+
 div.columns div{
     display:flex;
     margin:auto;

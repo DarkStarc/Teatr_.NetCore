@@ -24,6 +24,27 @@ nav {
     z-index:2;
     position:absolute !important;
 }
+
+.brand img {
+    width: auto;
+    height: 12.5vh;
+}
+
+.brand {
+    display: flex;
+    z-index: 10001;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+}
+
 @media screen and (max-width: 900px) {
     nav{
         position:relative !important;

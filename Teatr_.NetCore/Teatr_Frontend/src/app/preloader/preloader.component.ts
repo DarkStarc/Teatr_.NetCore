@@ -1,23 +1,10 @@
-﻿<!DOCTYPE html>
-<html lang="ru" ng-app="app">
-<head>
-    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
-    <title>App</title>
-    <base href="/">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link type="text/css" href="/app/styles.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-</head>
-<body>
-    <app-root></app-root>
-    <footer class="text-center text-black-50 m-4">
-        <span>©Copyright by Artemasov A.</span>
-    </footer>   
-    <div class="preloader">
-        <div class='brand'>
-            <svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+﻿import { Component,OnInit } from '@angular/core';
+import { PreloaderService } from './preloader.service'
+
+
+@Component({
+    //template: `<div *ngIf="this.preloader.GetStatus()" class='brand'><img src="assets/preloader.svg"></div>`,
+    template:`  <div *ngIf="!this.preloader.GetStatus()" class="brand"><svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
                 <style>
                     #smallEllipse {
                         animation: Preloader 2s ease;
@@ -40,9 +27,10 @@
                 <ellipse ry="291.49" rx="300.5" cy="296.777" cx="411.006" opacity="undefined" fill="#729C62" />
                 <ellipse ry="272" rx="275.333" cy="296.581" cx="412.486" opacity="NaN" fill="#fff" />
                 <ellipse id="smallEllipse" ry="241.049" rx="248.5" cy="297.488" cx="413" opacity="undefined" fill="#729C62" />
-            </svg>
-        </div>
-    </div>
-</body>
+            </svg></div>`,
+    selector: 'div.preloader'
+})
+export class PreloaderComponent {
 
-</html>
+    constructor(public preloader: PreloaderService) { }
+}

@@ -11,6 +11,9 @@ const moduleRoutes = [
     { path: '', component: MainViewComponent }
 ];
 let MainModule = class MainModule {
+    constructor(preloader) {
+        this.preloader = preloader;
+    }
 };
 MainModule = __decorate([
     NgModule({

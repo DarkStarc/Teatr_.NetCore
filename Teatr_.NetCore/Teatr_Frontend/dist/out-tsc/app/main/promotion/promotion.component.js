@@ -1,21 +1,13 @@
 import { __decorate } from "tslib";
 import { Component } from '@angular/core';
 import { HttpService } from '../../http.service';
-import { ImageComponent } from '../../image/image.component';
 let PromotionComponent = class PromotionComponent {
     constructor(httpService) {
         this.httpService = httpService;
-        this.images = new Array();
         this.isMaximize = false;
     }
     ngOnInit() {
-        this.httpService.getImagesPaths("Promotion").subscribe(data => {
-            data.map(dataItem => {
-                let buf = new ImageComponent();
-                buf.path = dataItem;
-                this.images.push(buf);
-            });
-        });
+        this.httpService.getImagesPaths("Promotion").subscribe(data => this.images = data);
     }
 };
 PromotionComponent = __decorate([

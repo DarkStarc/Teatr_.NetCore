@@ -4,6 +4,8 @@ import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { PreloaderComponent } from './preloader/preloader.component';
+import { PreloaderService } from './preloader/preloader.service';
 const appRoute = [
     { path: "", loadChildren: () => import("./main/main.module").then(m => m.MainModule) }
 ];
@@ -11,9 +13,10 @@ let AppModule = class AppModule {
 };
 AppModule = __decorate([
     NgModule({
-        declarations: [AppComponent, NavbarComponent],
+        declarations: [AppComponent, NavbarComponent, PreloaderComponent],
         imports: [BrowserModule, RouterModule.forRoot(appRoute)],
-        bootstrap: [AppComponent]
+        providers: [PreloaderService],
+        bootstrap: [AppComponent, PreloaderComponent]
     })
 ], AppModule);
 export { AppModule };

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { finalize } from 'rxjs/operators';
 import { HttpService } from '../../http.service';
 import { ImageComponent } from '../../image/image.component';
+import { PreloaderService } from '../../preloader/preloader.service'
 
 @Component({
     selector: 'div.promotion-content',
@@ -10,16 +12,15 @@ import { ImageComponent } from '../../image/image.component';
 })
 export class PromotionComponent implements OnInit
 {
-    images: ImageComponent[] = new Array<ImageComponent>();
-    f: string[];
+    images: ImageComponent[];
     isMaximize: boolean = false;
 
-
-    constructor(private httpService: HttpService) { }
+    constructor(private httpService: HttpService, public preloader: PreloaderService) { }
 
     ngOnInit() {
-        this.httpService.getImagesPaths("Promotion").subscribe(data => {
-        });
+        this.httpService.getImagesPaths("Promotion")
+            .pipe(finalize(() => { this.preloader.SetStatusPreloader(true)}))
+            .subscribe(data => { this.images = data });
        
     }
 

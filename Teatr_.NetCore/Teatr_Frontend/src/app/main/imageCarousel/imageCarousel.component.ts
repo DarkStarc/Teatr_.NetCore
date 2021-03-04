@@ -1,7 +1,8 @@
 import { Component, OnInit,Input } from '@angular/core';
-import { async, Observable } from 'rxjs';
+import { finalize } from 'rxjs/operators';
 import { HttpService } from '../../http.service';
 import { ImageComponent } from '../../image/image.component'
+import { PreloaderService } from '../../preloader/preloader.service'
 
 @Component({
 	selector: 'div.carousel-inner',
@@ -11,9 +12,9 @@ import { ImageComponent } from '../../image/image.component'
 		opacity:0.1 !important;
 	}`],
 	template: `<div *ngFor="let image of images; let i = index" data-interval="5000" style="height:inherit; filter:contrast(130%) brightness(0.5) blur(2px);" class="carousel-item" [class.active]="i==0">				
-					<div [style.background-image]="'image.path'" style="height:inherit;
+				<div [style.background-image]="'url('+image.path+')'" style="height:inherit;
 										background-repeat:no-repeat; background-size:cover;background-position: center;">
-					</div>						
+					</div>					
 			   </div>
  <a class="carousel-control-prev" href="#image-carousel" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -32,10 +33,12 @@ export class ImageCarousel implements OnInit {
 
 	@Input() histonic: string;
 
-	constructor(private httpService: HttpService) { }
+	constructor(private httpService: HttpService, public preloader: PreloaderService) { }
 
 	ngOnInit() {
-		this.httpService.getImagesPaths(this.histonic).subscribe(data => this.images = data);
+		this.httpService.getImagesPaths(this.histonic)
+			.pipe(finalize(() => { this.preloader.SetStatusPreloader(true) }))
+			.subscribe(data => this.images = data);
 	}
 
 }
