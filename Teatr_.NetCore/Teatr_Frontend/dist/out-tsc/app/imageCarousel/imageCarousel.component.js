@@ -1,7 +1,7 @@
 import { __decorate } from "tslib";
 import { Component, Input } from '@angular/core';
 import { finalize } from 'rxjs/operators';
-import { HttpService } from '../../http.service';
+import { HttpService } from '../http.service';
 let ImageCarousel = class ImageCarousel {
     constructor(httpService, preloader) {
         this.httpService = httpService;

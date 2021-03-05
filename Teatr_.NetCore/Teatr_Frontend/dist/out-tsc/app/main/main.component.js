@@ -1,9 +1,6 @@
 import { __decorate } from "tslib";
 import { Component } from '@angular/core';
 let MainViewComponent = class MainViewComponent {
-    ngAfterViewInit() {
-        console.log("loaded");
-    }
 };
 MainViewComponent = __decorate([
     Component({

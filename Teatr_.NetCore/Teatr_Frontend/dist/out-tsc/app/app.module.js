@@ -10,6 +10,9 @@ const appRoute = [
     { path: "", loadChildren: () => import("./main/main.module").then(m => m.MainModule) }
 ];
 let AppModule = class AppModule {
+    constructor(preloader) {
+        this.preloader = preloader;
+    }
 };
 AppModule = __decorate([
     NgModule({

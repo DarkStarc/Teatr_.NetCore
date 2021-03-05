@@ -1,6 +1,6 @@
 import { __decorate } from "tslib";
 import { NgModule } from '@angular/core';
-import { ImageCarousel } from './imageCarousel/imageCarousel.component';
+import { ImageCarousel } from '../imageCarousel/imageCarousel.component';
 import { PromotionComponent } from './promotion/promotion.component';
 import { MainViewComponent } from './main.component';
 import { ImageComponent } from '../image/image.component';
@@ -13,6 +13,7 @@ const moduleRoutes = [
 let MainModule = class MainModule {
     constructor(preloader) {
         this.preloader = preloader;
+        this.preloader.SetMaxCountToLoad(2);
     }
 };
 MainModule = __decorate([

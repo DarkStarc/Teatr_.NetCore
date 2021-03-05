@@ -16,13 +16,18 @@ let PreloaderService = class PreloaderService {
         //state
         if (this.currentCountVal == this.maxCountVal) {
             this.isLoad = true;
+            //  console.log("load");
         }
         else {
             this.isLoad = false;
         }
+        //console.log(this.currentCountVal, this.maxCountVal);
     }
     GetStatus() {
         return this.isLoad;
+    }
+    SetMaxCountToLoad(val) {
+        this.maxCountVal = val;
     }
 };
 PreloaderService = __decorate([

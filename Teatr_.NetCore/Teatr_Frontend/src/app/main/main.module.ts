@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { ImageCarousel } from './imageCarousel/imageCarousel.component'
+import { ImageCarousel } from '../imageCarousel/imageCarousel.component'
 import { PromotionComponent } from './promotion/promotion.component';
 import { MainViewComponent } from './main.component';
 import { ImageComponent } from '../image/image.component';
