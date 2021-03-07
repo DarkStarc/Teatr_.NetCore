@@ -10,9 +10,9 @@ using Teatr.Models;
 
 namespace Teatr.Controllers
 {
-    [Route("api/images/[action]")]
+    [Route("api/[controller]")]
     [ApiController]
-    public class ImageController : ControllerBase
+    public class ImageController : Controller
     {
         private readonly DatabaseContext db;
         public ImageController(DatabaseContext _db)
@@ -21,15 +21,24 @@ namespace Teatr.Controllers
         }
 
         [HttpGet]
-        public async Task<JsonResult> ImagePathList(string usedFor)
+        public async Task<IActionResult> ImagePathList(string usedFor,[FromQuery(Name ="id")] int[] id)
         {
-            var s = Request.PathBase;
+
             if (!String.IsNullOrWhiteSpace(usedFor))
             {
-                return new JsonResult(await db.Images.Where(p => p.UsedFor.ToLower() == usedFor.ToLower()).Select(p => p.Path).ToListAsync());
+                if (usedFor.ToLower() == "histonic" && id != null) // return paths with id
+                {
+                    return Ok(await db.Histonics.Where(p => id.Contains(p.HistonicId))
+                       .Include(p => p.Images)
+                       .Select(p => p.Images.Select(p => p.Path))
+                       .ToListAsync());
+                }
+
+                //return paths with used
+                return Ok(await db.Images.Where(p => p.UsedFor.ToLower() == usedFor.ToLower()).Select(p => p.Path).ToListAsync());
             }
 
-            return null;
+            return BadRequest();
         }
     }
 }

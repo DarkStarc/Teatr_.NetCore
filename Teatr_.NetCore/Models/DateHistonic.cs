@@ -9,7 +9,7 @@ namespace Teatr.Models
     {
         public int DateHistonicId{ get; set; }
         public DateTime Time { get; set; }
-        public IEnumerable<Histonic> Histonics { get; set; }
+        public IEnumerable<Histonic> Histonics { get; set; } 
         public DateHistonic()
         {
             Histonics = new List<Histonic>();

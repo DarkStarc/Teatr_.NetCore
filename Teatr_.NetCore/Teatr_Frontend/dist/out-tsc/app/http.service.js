@@ -7,7 +7,7 @@ let HttpService = class HttpService {
         this.http = http;
     }
     getImagesPaths(ForHistrionic) {
-        return this.http.get('/api/images/ImagePathList?usedFor=' + ForHistrionic).pipe(map((data) => {
+        return this.http.get('/api/Image?usedFor=' + ForHistrionic).pipe(map((data) => {
             return data.map(function (dataPath) {
                 let buf = new ImageComponent();
                 buf.path = dataPath;

@@ -1,10 +1,24 @@
 ﻿import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class PreloaderService {
     private isLoad = false;
     private maxCountVal = 1;
     private currentCountVal = 0;
+
+    private CheckStatusPreloader() {
+       
+        if (this.currentCountVal == this.maxCountVal) {
+            this.isLoad = true;
+
+        }
+        else {
+            this.isLoad = false;
+        }
+
+        //console.log("check", this.currentCountVal, this.maxCountVal, this.isLoad);
+    }
 
     SetStatusPreloader(val: boolean) {
         
@@ -16,13 +30,8 @@ export class PreloaderService {
         }
 
         //state
-        if (this.currentCountVal == this.maxCountVal) {
-            this.isLoad = true;
-        //  console.log("load");
-        }
-        else {
-            this.isLoad = false;
-        }
+        this.CheckStatusPreloader();
+
         //console.log(this.currentCountVal, this.maxCountVal);
     }
 
@@ -31,6 +40,12 @@ export class PreloaderService {
     }
 
     SetMaxCountToLoad(val: number) {
+        //console.log("setPreloader", val);
+
+        this.currentCountVal = 0;
         this.maxCountVal = val;
+
+        this.CheckStatusPreloader();
     }
+
 }

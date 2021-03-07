@@ -1,8 +1,8 @@
 import { __decorate } from "tslib";
 import { Component } from '@angular/core';
-let MainViewComponent = class MainViewComponent {
+let MainComponent = class MainComponent {
 };
-MainViewComponent = __decorate([
+MainComponent = __decorate([
     Component({
         selector: 'main',
         templateUrl: `./main.html`,
@@ -29,6 +29,6 @@ MainViewComponent = __decorate([
         }
     `]
     })
-], MainViewComponent);
-export { MainViewComponent };
+], MainComponent);
+export { MainComponent };
 //# sourceMappingURL=main.component.js.map

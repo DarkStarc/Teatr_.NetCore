@@ -28,6 +28,16 @@ nav {
     animation:Hidden 1s ease;
     animation-fill-mode:forwards;
 }
+perfomances {
+    display: flex;
+    position: relative;
+    position: relative;
+    width: 100vw;
+    height: 34vh;
+    background-color:black;
+    justify-content:center;
+}
+
 @keyframes Hidden{
     0%{
         opacity:1;

@@ -1,0 +1,1 @@
+{"version":3,"file":"perfomances.component.js","sourceRoot":"","sources":["../../../../src/app/perfomances/perfomances.component.ts"],"names":[],"mappings":";AAAA,OAAO,EAAE,SAAS,GAAG,MAAM,eAAe,CAAC;AAM3C,IAAa,oBAAoB,GAAjC,MAAa,oBAAoB;CAAI,CAAA;AAAxB,oBAAoB;IAJhC,SAAS,CAAC;QACP,QAAQ,EAAE,aAAa;QACvB,QAAQ,EAAC,EAAE;KACd,CAAC;GACW,oBAAoB,CAAI;SAAxB,oBAAoB"}

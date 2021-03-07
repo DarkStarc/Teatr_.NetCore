@@ -7,8 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Teatr_Frontend\src\app\preloader\preloader.component.ts" />
-    <None Remove="Teatr_Frontend\src\app\preloader\preloader.service.ts" />
+    <None Remove="Teatr_Frontend\src\app\mainRouting_nodes\perfomances\perfomances.component.ts" />
+    <None Remove="Teatr_Frontend\src\app\mainRouting_nodes\perfomances\perfomances.module.ts" />
+    <None Remove="Teatr_Frontend\src\app\assist_nodes\preloader\preloader.component.ts" />
+    <None Remove="Teatr_Frontend\src\app\assist_nodes\preloader\preloader.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,9 +31,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <TypeScriptCompile Include="Teatr_Frontend\src\app\image\image.component.ts" />
-    <TypeScriptCompile Include="Teatr_Frontend\src\app\preloader\preloader.component.ts" />
-    <TypeScriptCompile Include="Teatr_Frontend\src\app\preloader\preloader.service.ts" />
+    <TypeScriptCompile Include="Teatr_Frontend\src\app\assist_nodes\image\image.component.ts" />
+    <TypeScriptCompile Include="Teatr_Frontend\src\app\mainRouting_nodes\perfomances\perfomances.component.ts" />
+    <TypeScriptCompile Include="Teatr_Frontend\src\app\mainRouting_nodes\perfomances\perfomances.module.ts" />
+    <TypeScriptCompile Include="Teatr_Frontend\src\app\assist_nodes\preloader\preloader.component.ts" />
+    <TypeScriptCompile Include="Teatr_Frontend\src\app\assist_nodes\preloader\preloader.service.ts" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties teatr_3frontend_4angular_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>

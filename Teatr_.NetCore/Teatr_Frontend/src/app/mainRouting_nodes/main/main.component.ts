@@ -1,4 +1,4 @@
-import { Component,AfterViewInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'main',
@@ -27,6 +27,6 @@ import { Component,AfterViewInit } from '@angular/core';
     `]
 })
 
-export class MainViewComponent
+export class MainComponent
 {
 }

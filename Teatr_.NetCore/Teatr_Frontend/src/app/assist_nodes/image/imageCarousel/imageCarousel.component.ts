@@ -1,8 +1,8 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { finalize } from 'rxjs/operators';
-import { HttpService } from '../http.service';
-import { ImageComponent } from '../image/image.component'
-import { PreloaderService } from '../preloader/preloader.service'
+import { HttpService } from '../../../http.service';
+import { ImageComponent } from '../image.component'
+import { PreloaderService } from '../../preloader/preloader.service'
 
 @Component({
 	selector: 'div.carousel-inner',

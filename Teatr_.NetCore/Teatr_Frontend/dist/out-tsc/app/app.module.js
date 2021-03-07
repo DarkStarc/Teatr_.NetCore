@@ -7,7 +7,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { PreloaderComponent } from './preloader/preloader.component';
 import { PreloaderService } from './preloader/preloader.service';
 const appRoute = [
-    { path: "", loadChildren: () => import("./main/main.module").then(m => m.MainModule) }
+    { path: "", loadChildren: () => import("./main/main.module").then(m => m.MainModule) },
+    { path: "Perfomances", loadChildren: () => import("./perfomances/perfomances.module").then(m => m.PerfomancesModule) }
 ];
 let AppModule = class AppModule {
     constructor(preloader) {
