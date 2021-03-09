@@ -29,8 +29,6 @@ nav {
     animation-fill-mode:forwards;
 }
 perfomances {
-    display: flex;
-    position: relative;
     position: relative;
     width: 100vw;
     height: 34vh;

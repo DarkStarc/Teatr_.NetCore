@@ -1,4 +1,24 @@
-﻿span.caption{
-    width:50vh;
-    margin-top:60px;
+﻿span.user-carousel-caption {
+    z-index: 2;
+    position: absolute;
+    color: white;
+    font-size: 1.5vmax;
+    left: 0;
+    text-align: center;
+    top: 8vmax;
+    right: 0;
+    margin: auto;
+    color: white;
+    width: 30vmax;
+}
+@media screen and (max-width: 900px) {
+    span.user-carousel-caption {
+        font-size: 2.2vmax;
+        width:40vmax;
+        top:12vmax;
+    }
+    div.carousel-inner{
+        height:40vmax!important;
+    }
+    
 }

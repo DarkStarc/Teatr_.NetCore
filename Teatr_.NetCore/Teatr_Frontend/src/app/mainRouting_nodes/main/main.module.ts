@@ -1,12 +1,11 @@
 import { NgModule} from '@angular/core';
-import { ImageCarousel } from '../../assist_nodes/image/imageCarousel/imageCarousel.component'
 import { PromotionComponent } from './promotion/promotion.component';
 import { MainComponent } from './main.component';
-import { ImageComponent } from '../../assist_nodes/image/image.component';
 import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule, Router, NavigationStart } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { PreloaderService } from '../../assist_nodes/preloader/preloader.service'
+import { ImageModule } from '../../assist_nodes/image/image.module';
 
 
 const moduleRoutes: Routes = [
@@ -14,8 +13,8 @@ const moduleRoutes: Routes = [
 ];
 
 @NgModule({
-    declarations: [MainComponent, ImageCarousel, PromotionComponent, ImageComponent],
-    imports: [HttpClientModule, CommonModule, RouterModule.forChild(moduleRoutes)],
+    declarations: [MainComponent, PromotionComponent],
+    imports: [HttpClientModule, ImageModule, CommonModule, RouterModule.forChild(moduleRoutes)],
     exports: [MainComponent, PromotionComponent],
 })
 

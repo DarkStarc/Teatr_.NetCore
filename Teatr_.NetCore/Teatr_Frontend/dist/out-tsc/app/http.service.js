@@ -1,6 +1,6 @@
 import { __decorate } from "tslib";
 import { Injectable } from '@angular/core';
-import { ImageComponent } from './image/image.component';
+import { ImageComponent } from './assist_nodes/image/image.component';
 import { map } from 'rxjs/operators';
 let HttpService = class HttpService {
     constructor(http) {

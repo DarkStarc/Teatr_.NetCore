@@ -28,7 +28,7 @@ import { PreloaderService } from '../../preloader/preloader.service'
 	providers: [HttpService]
 })
 
-export class ImageCarousel implements OnInit {
+export class ImageCarouselComponent implements OnInit {
 	images: ImageComponent[];
 
 	@Input() histonic: string;

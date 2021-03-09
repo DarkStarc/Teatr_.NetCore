@@ -3,12 +3,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { PreloaderComponent } from './preloader/preloader.component';
-import { PreloaderService } from './preloader/preloader.service';
+import { NavbarComponent } from './assist_nodes/navbar/navbar.component';
+import { PreloaderComponent } from './assist_nodes/preloader/preloader.component';
+import { PreloaderService } from './assist_nodes/preloader/preloader.service';
 const appRoute = [
-    { path: "", loadChildren: () => import("./main/main.module").then(m => m.MainModule) },
-    { path: "Perfomances", loadChildren: () => import("./perfomances/perfomances.module").then(m => m.PerfomancesModule) }
+    { path: "", loadChildren: () => import("./mainRouting_nodes/main/main.module").then(m => m.MainModule) },
+    { path: "Perfomances", loadChildren: () => import("./MainRouting_nodes/perfomances/perfomances.module").then(m => m.PerfomancesModule) }
 ];
 let AppModule = class AppModule {
     constructor(preloader) {
