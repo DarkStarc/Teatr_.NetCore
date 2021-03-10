@@ -30,12 +30,14 @@ namespace Teatr.Controllers
                 {
                     return Ok(await db.Histonics.Where(p => id.Contains(p.HistonicId))
                        .Include(p => p.Images)
-                       .Select(p => p.Images.Select(p => p.Path))
+                       .Select(p => p.Images.Select(p => new { path = p.Path, title = p.Title }))
                        .ToListAsync());
                 }
 
                 //return paths with used
-                return Ok(await db.Images.Where(p => p.UsedFor.ToLower() == usedFor.ToLower()).Select(p => p.Path).ToListAsync());
+                return Ok(await db.Images.Where(p => p.UsedFor.ToLower() == usedFor.ToLower())
+                    .Select(p => new { path = p.Path,title = p.Title })
+                    .ToListAsync());
             }
 
             return BadRequest();

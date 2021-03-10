@@ -17,12 +17,23 @@ namespace Teatr.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Image>().HasMany(p => p.Preview).WithOne(p => p.Preview);
+            modelBuilder.Entity<Image>().HasMany(p => p.Histonics).WithMany(p => p.Images);
+
             modelBuilder.Entity<Image>().HasData(new Image[]
             {
                 new Image(){ ImageId=1, Title="Test", Path = "Content/Image/1.png",UsedFor="Main" },
                 new Image(){ ImageId=2, Title="Test", Path = "Content/Image/2.png",UsedFor="Main" },
                 new Image(){ ImageId=3, Title="Test", Path = "Content/Image/3.png",UsedFor="Promotion" },
-                new Image(){ ImageId=4, Title="Test", Path = "Content/Image/25.jpg",UsedFor="Promotion" }
+                new Image(){ ImageId=4, Title="Test", Path = "Content/Image/25.jpg",UsedFor="Promotion" },
+                new Image(){ ImageId=5, Title="Test", Path = "Content/Image/zavtra.jpg",UsedFor="Histonic" }
+            });
+
+            modelBuilder.Entity<Histonic>().HasData(new Histonic[]
+            {
+                new Histonic(){HistonicId = 1, Name = "Test", Description = "Lorem ipsum dolor sit amet," +
+                " consectetur adipiscing elit. In id odio sed quam ultricies vehicula. Class aptent taciti" +
+                " sociosqu ad litora torquent per conubia nostra.", PreviewId = 5}
             });
 
             modelBuilder.Entity<DateHistonic>().HasData(new DateHistonic[] {

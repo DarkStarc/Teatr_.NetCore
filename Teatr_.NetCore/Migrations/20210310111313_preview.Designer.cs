@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Teatr.Models;
 
 namespace Teatr.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20210310111313_preview")]
+    partial class preview
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -67,7 +69,7 @@ namespace Teatr.Migrations
                         new
                         {
                             DateHistonicId = 1,
-                            Time = new DateTime(2021, 3, 10, 20, 44, 32, 372, DateTimeKind.Local).AddTicks(5753)
+                            Time = new DateTime(2021, 3, 10, 13, 13, 12, 945, DateTimeKind.Local).AddTicks(6460)
                         });
                 });
 
@@ -90,7 +92,7 @@ namespace Teatr.Migrations
                     b.Property<string>("Roles")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTimeOffset?>("TimeDuration")
+                    b.Property<DateTimeOffset>("TimeDuration")
                         .HasColumnType("datetimeoffset");
 
                     b.Property<string>("UrlToTraller")
@@ -101,15 +103,6 @@ namespace Teatr.Migrations
                     b.HasIndex("PreviewId");
 
                     b.ToTable("Histonics");
-
-                    b.HasData(
-                        new
-                        {
-                            HistonicId = 1,
-                            Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id odio sed quam ultricies vehicula. Class aptent taciti sociosqu ad litora torquent per conubia nostra.",
-                            Name = "Test",
-                            PreviewId = 5
-                        });
                 });
 
             modelBuilder.Entity("Teatr.Models.Image", b =>
@@ -160,13 +153,6 @@ namespace Teatr.Migrations
                             Path = "Content/Image/25.jpg",
                             Title = "Test",
                             UsedFor = "Promotion"
-                        },
-                        new
-                        {
-                            ImageId = 5,
-                            Path = "Content/Image/zavtra.jpg",
-                            Title = "Test",
-                            UsedFor = "Histonic"
                         });
                 });
 

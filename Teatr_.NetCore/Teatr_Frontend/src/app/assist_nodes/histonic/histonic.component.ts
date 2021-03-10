@@ -18,15 +18,8 @@ export interface IHistonic {
 
 @Injectable()
 export class HistonicComponent implements IHistonic {
-    @Input() id: number;
-    @Input() VideoUrl: string;
-    @Input() Name: string;
-    @Input() Description: string;
-    @Input() Roles: string;
-    @Input() Images: ImageComponent[]
-    @Input() Time: Date;
 
-    constructor(id: number,Name: string, Description: string, Roles: string, Time: Date, VideoUrl: string, Images: ImageComponent[]) {
+    set( id: number, Name: string, Description: string, Roles: string, Time: Date, VideoUrl: string, Images: ImageComponent[]) {
         this.id = id;
         this.Name = Name;
         this.Description = Description;
@@ -35,4 +28,14 @@ export class HistonicComponent implements IHistonic {
         this.VideoUrl = VideoUrl;
         this.Images = Images;
     }
+
+    @Input() id: number;
+    @Input() VideoUrl: string;
+    @Input() Name: string;
+    @Input() Description: string;
+    @Input() Roles: string;
+    @Input() Images: ImageComponent[]
+    @Input() Time: Date;
+
+   
 }

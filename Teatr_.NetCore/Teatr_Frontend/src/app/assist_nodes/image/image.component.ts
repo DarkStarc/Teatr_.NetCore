@@ -3,7 +3,7 @@
 @Component({
     selector: 'div.image',
     template: `
-    <img [attr.src]='path' [style]='Style' [style.height]='height' [style.width]='width' [style.max-height]='MxHeight' [style.max-width]='MxWidth'
+    <img [attr.alt]='this.title' [attr.src]='path' [style]='Style' [style.height]='height' [style.width]='width' [style.max-height]='MxHeight' [style.max-width]='MxWidth'
                         (click)="Maximize()" [class.btn] = "CanMaximize">
     <img *ngIf="CanMaximize" [class.active] = "IsMaximize" class="maximizeImage" [attr.src]='path' (click)="Maximize()">
     <div *ngIf="CanMaximize" class="background btn"  [class.active] = "IsMaximize" (click)="Maximize()" ></div>
@@ -14,6 +14,7 @@
 
 export class ImageComponent {
     @Input() path: string;
+    @Input() title: string;
     @Input() height: string = "auto";
     @Input() width: string = "auto";
     @Input() MxHeight: string = "auto";

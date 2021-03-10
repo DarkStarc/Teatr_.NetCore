@@ -20,15 +20,28 @@ namespace Teatr.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetHistonic(int? count)
+        public async Task<IActionResult> GetHistonic(int? count,bool card)
         {
             var dbQuery = db.Histonics.OrderBy(p => p.Name);
+
             if (count.HasValue)
             {
-               return Ok(await dbQuery.Take(count.Value).ToListAsync());
+                var returnVal = db.Histonics.Take(count.Value).Include(p => p.Preview);
+
+                if (card)
+                {
+                    //all true
+                    return Ok(await returnVal.Select(p =>
+                        new { id = p.HistonicId, Name = p.Name, Description = p.Description, Preview = p.Preview })
+                            .ToListAsync());
+                }
+
+                //null card
+                return Ok(returnVal.ToListAsync());
             }
 
-            return Ok(await dbQuery.ToListAsync());
+            //Null count and card
+            return Ok(await db.Histonics.Include(p => p.Preview).ToListAsync());
         }
 
     }

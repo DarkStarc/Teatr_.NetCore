@@ -21,6 +21,9 @@ __decorate([
 ], ImageComponent.prototype, "path", void 0);
 __decorate([
     Input()
+], ImageComponent.prototype, "title", void 0);
+__decorate([
+    Input()
 ], ImageComponent.prototype, "height", void 0);
 __decorate([
     Input()
@@ -41,7 +44,7 @@ ImageComponent = __decorate([
     Component({
         selector: 'div.image',
         template: `
-    <img [attr.src]='path' [style]='Style' [style.height]='height' [style.width]='width' [style.max-height]='MxHeight' [style.max-width]='MxWidth'
+    <img [attr.alt]='this.title' [attr.src]='path' [style]='Style' [style.height]='height' [style.width]='width' [style.max-height]='MxHeight' [style.max-width]='MxWidth'
                         (click)="Maximize()" [class.btn] = "CanMaximize">
     <img *ngIf="CanMaximize" [class.active] = "IsMaximize" class="maximizeImage" [attr.src]='path' (click)="Maximize()">
     <div *ngIf="CanMaximize" class="background btn"  [class.active] = "IsMaximize" (click)="Maximize()" ></div>
