@@ -18,6 +18,8 @@ namespace Teatr.Models
         public List<DateHistonic> Dates { get; set; }
         public int? PreviewId { get; set; }
         public Image Preview { get; set; }
+        public int? TypeId { get; set; }
+        public TypeHistonic Type { get; set; }
         public Histonic() {
             Images = new List<Image>();
 

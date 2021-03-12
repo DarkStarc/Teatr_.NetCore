@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Teatr.Models;
 
 namespace Teatr.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20210312085409_TypeHistonic")]
+    partial class TypeHistonic
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -67,7 +69,7 @@ namespace Teatr.Migrations
                         new
                         {
                             DateHistonicId = 1,
-                            Time = new DateTime(2021, 3, 12, 10, 59, 44, 882, DateTimeKind.Local).AddTicks(4570)
+                            Time = new DateTime(2021, 3, 12, 10, 54, 8, 584, DateTimeKind.Local).AddTicks(291)
                         });
                 });
 
@@ -93,17 +95,12 @@ namespace Teatr.Migrations
                     b.Property<DateTimeOffset?>("TimeDuration")
                         .HasColumnType("datetimeoffset");
 
-                    b.Property<int?>("TypeId")
-                        .HasColumnType("int");
-
                     b.Property<string>("UrlToTraller")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("HistonicId");
 
                     b.HasIndex("PreviewId");
-
-                    b.HasIndex("TypeId");
 
                     b.ToTable("Histonics");
 
@@ -243,23 +240,12 @@ namespace Teatr.Migrations
                         .WithMany("Preview")
                         .HasForeignKey("PreviewId");
 
-                    b.HasOne("Teatr.Models.TypeHistonic", "Type")
-                        .WithMany("Histonics")
-                        .HasForeignKey("TypeId");
-
                     b.Navigation("Preview");
-
-                    b.Navigation("Type");
                 });
 
             modelBuilder.Entity("Teatr.Models.Image", b =>
                 {
                     b.Navigation("Preview");
-                });
-
-            modelBuilder.Entity("Teatr.Models.TypeHistonic", b =>
-                {
-                    b.Navigation("Histonics");
                 });
 #pragma warning restore 612, 618
         }
