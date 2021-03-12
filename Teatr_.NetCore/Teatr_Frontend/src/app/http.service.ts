@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { ImageComponent } from './assist_nodes/image/image.component';
-import { map } from 'rxjs/operators';
-import { HistonicComponent } from './assist_nodes/histonic/histonic.component';
+import { catchError, finalize, map } from 'rxjs/operators';
 import { HistonicCardComponent } from './assist_nodes/histonic/card.component';
+import { PreloaderService } from './assist_nodes/preloader/preloader.service';
 
 
 @Injectable()
 export class HttpService {
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient,public preloader:PreloaderService) { }
 
     getImagesPaths(ForHistrionic: string): Observable<ImageComponent[]> {
         return this.http.get('/api/Image?usedFor=' + ForHistrionic).pipe(map((data: string[]) => {
@@ -20,16 +20,19 @@ export class HttpService {
                 buf.title = dataPath["title"];
                 return buf;
             })
-        }));
+        })).pipe(finalize(() => { this.preloader.SetStatusPreloader(true) }));
     }
 
-    getHistonicCard(Id: number[]): Observable<HistonicCardComponent[]> {
-        return this.http.get('/api/Histonic?card=true').pipe(map(data => {
-            let dataList = data[""];
-            return dataList.map(function (card: any) {
-                return {}
+    getHistonicCard(): Observable<HistonicCardComponent[]> {
+        return this.http.get('/api/Histonic?card=true').pipe(map((data: Object[]) => {
+            return data.map(function (card) {
+                let buf = new HistonicCardComponent();
+                let bufImage = new ImageComponent();
+                bufImage.set(card["preview"]["path"], card["preview"]["title"]);
+                buf.set(card["id"],card["name"], card["description"], bufImage);
+                return buf;
             });
-        }));
+        })).pipe(finalize(() => { this.preloader.SetStatusPreloader(true) }));
     }
 
 }

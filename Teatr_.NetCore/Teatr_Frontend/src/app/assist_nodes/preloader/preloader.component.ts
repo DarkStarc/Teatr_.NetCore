@@ -54,7 +54,8 @@ import { PreloaderService } from './preloader.service'
                             <text transform="matrix(1 0 0 1 202.998 125)" fill="#1A1A1A" font-family="'FuturaLightC'" font-size="28px">.</text>
                 </g>
                 </svg>
-</div>`,
+</div>
+`,
     selector: 'div.preloader'
 })
 export class PreloaderComponent {

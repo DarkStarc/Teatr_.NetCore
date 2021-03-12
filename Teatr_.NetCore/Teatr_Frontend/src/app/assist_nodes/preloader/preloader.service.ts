@@ -6,6 +6,7 @@ export class PreloaderService {
     private isLoad = false;
     private maxCountVal = 1;
     private currentCountVal = 0;
+    private errorMessage: string = null;
 
     private CheckStatusPreloader() {
        
@@ -20,6 +21,14 @@ export class PreloaderService {
         //console.log("check", this.currentCountVal, this.maxCountVal, this.isLoad);
     }
 
+    SetErrorMessage(val: string) {
+        this.errorMessage = val;
+    }
+
+    GetErrorMessage(): string {
+        return this.errorMessage;
+    }
+
     SetStatusPreloader(val: boolean) {
         
         if (val) {
@@ -32,7 +41,7 @@ export class PreloaderService {
         //state
         this.CheckStatusPreloader();
 
-        //console.log(this.currentCountVal, this.maxCountVal);
+        console.log(this.currentCountVal, this.maxCountVal);
     }
 
     GetStatus(): boolean {

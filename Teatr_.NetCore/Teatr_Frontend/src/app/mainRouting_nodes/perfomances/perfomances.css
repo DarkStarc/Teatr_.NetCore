@@ -11,6 +11,13 @@
     color: white;
     width: 30vmax;
 }
+.card {
+    max-width: 30vw;
+    box-shadow: 2px 5px 14px 1px rgba(34, 60, 80, 0.1);
+}
+.card:hover{
+    transform:scale(1.004);
+}
 @media screen and (max-width: 900px) {
     span.user-carousel-caption {
         font-size: 2.2vmax;

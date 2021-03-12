@@ -5,6 +5,7 @@ let PreloaderService = class PreloaderService {
         this.isLoad = false;
         this.maxCountVal = 1;
         this.currentCountVal = 0;
+        this.errorMessage = null;
     }
     CheckStatusPreloader() {
         if (this.currentCountVal == this.maxCountVal) {
@@ -15,6 +16,12 @@ let PreloaderService = class PreloaderService {
         }
         //console.log("check", this.currentCountVal, this.maxCountVal, this.isLoad);
     }
+    SetErrorMessage(val) {
+        this.errorMessage = val;
+    }
+    GetErrorMessage() {
+        return this.errorMessage;
+    }
     SetStatusPreloader(val) {
         if (val) {
             this.currentCountVal++;
@@ -24,7 +31,7 @@ let PreloaderService = class PreloaderService {
         }
         //state
         this.CheckStatusPreloader();
-        //console.log(this.currentCountVal, this.maxCountVal);
+        console.log(this.currentCountVal, this.maxCountVal);
     }
     GetStatus() {
         return this.isLoad;

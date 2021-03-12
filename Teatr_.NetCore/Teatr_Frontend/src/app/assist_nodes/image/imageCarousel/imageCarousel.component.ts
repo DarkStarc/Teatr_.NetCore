@@ -37,7 +37,6 @@ export class ImageCarouselComponent implements OnInit {
 
 	ngOnInit() {
 		this.httpService.getImagesPaths(this.histonic)
-			.pipe(finalize(() => { this.preloader.SetStatusPreloader(true) }))
 			.subscribe(data => this.images = data);
 	}
 

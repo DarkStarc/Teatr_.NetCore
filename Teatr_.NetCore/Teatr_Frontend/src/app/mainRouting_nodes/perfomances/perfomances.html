@@ -9,7 +9,9 @@
     <div class="caption">
         <span class="">Афіша</span>
     </div>
-    <div class="content mt-4">
 
+    <div class="content d-flex flex-wrap justify-content-center mt-4">
+        <div class="card m-5" *ngFor ="let card of cards" [name] ="card.name" [description]="card.description" [preview] ="card.preview" [width]="'30vw'">
+        </div>
     </div>
 </div>

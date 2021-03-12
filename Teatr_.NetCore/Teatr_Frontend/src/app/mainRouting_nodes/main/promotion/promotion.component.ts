@@ -18,9 +18,7 @@ export class PromotionComponent implements OnInit
     constructor(private httpService: HttpService, public preloader: PreloaderService) { }
 
     ngOnInit() {
-        this.httpService.getImagesPaths("Promotion")
-            .pipe(finalize(() => { this.preloader.SetStatusPreloader(true)}))
-            .subscribe(data => { this.images = data });
+        this.httpService.getImagesPaths("Promotion").subscribe(data => { this.images = data });
        
     }
 

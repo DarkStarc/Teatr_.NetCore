@@ -1,23 +1,35 @@
 import { __decorate } from "tslib";
 import { Component, Injectable, Input } from '@angular/core';
 let HistonicCardComponent = class HistonicCardComponent {
+    constructor() {
+        this.width = "auto";
+    }
+    set(id, Name, Description, Preview) {
+        this.id = id;
+        this.name = Name;
+        this.description = Description;
+        this.preview = Preview;
+    }
 };
 __decorate([
     Input()
-], HistonicCardComponent.prototype, "Id", void 0);
+], HistonicCardComponent.prototype, "id", void 0);
 __decorate([
     Input()
-], HistonicCardComponent.prototype, "Name", void 0);
+], HistonicCardComponent.prototype, "name", void 0);
 __decorate([
     Input()
-], HistonicCardComponent.prototype, "Description", void 0);
+], HistonicCardComponent.prototype, "description", void 0);
 __decorate([
     Input()
-], HistonicCardComponent.prototype, "Preview", void 0);
+], HistonicCardComponent.prototype, "preview", void 0);
+__decorate([
+    Input()
+], HistonicCardComponent.prototype, "width", void 0);
 HistonicCardComponent = __decorate([
     Component({
         selector: 'div.card',
-        template: ``,
+        templateUrl: 'card.html',
     }),
     Injectable()
 ], HistonicCardComponent);

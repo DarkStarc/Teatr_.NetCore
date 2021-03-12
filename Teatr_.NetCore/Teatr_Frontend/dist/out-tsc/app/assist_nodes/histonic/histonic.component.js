@@ -1,7 +1,7 @@
 import { __decorate } from "tslib";
 import { Component, Injectable, Input } from '@angular/core';
 let HistonicComponent = class HistonicComponent {
-    constructor(id, Name, Description, Roles, Time, VideoUrl, Images) {
+    set(id, Name, Description, Roles, Time, VideoUrl, Images) {
         this.id = id;
         this.Name = Name;
         this.Description = Description;

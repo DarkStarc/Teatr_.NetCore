@@ -1,6 +1,5 @@
 import { __decorate } from "tslib";
 import { Component, Input } from '@angular/core';
-import { finalize } from 'rxjs/operators';
 import { HttpService } from '../../../http.service';
 let ImageCarouselComponent = class ImageCarouselComponent {
     constructor(httpService, preloader) {
@@ -9,7 +8,6 @@ let ImageCarouselComponent = class ImageCarouselComponent {
     }
     ngOnInit() {
         this.httpService.getImagesPaths(this.histonic)
-            .pipe(finalize(() => { this.preloader.SetStatusPreloader(true); }))
             .subscribe(data => this.images = data);
     }
 };
