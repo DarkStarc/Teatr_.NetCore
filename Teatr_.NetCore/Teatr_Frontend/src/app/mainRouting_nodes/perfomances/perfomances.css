@@ -13,13 +13,30 @@
 }
 .card {
     max-width: 30vw;
+    transition-duration:0.5s;
     box-shadow: 2px 5px 14px 1px rgba(34, 60, 80, 0.1);
 }
 .card:hover{
-    transform:scale(1.004);
+    box-shadow: 2px 5px 14px 10px rgba(34, 60, 80, 0.1);
+}
+button:focus{
+    box-shadow:none !important;
+}
+button h5 {
+    border: 1px solid black;
+    box-shadow: 5px -5px 10px -6px rgba(34, 60, 80, 0.16);
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    transition-duration:0.1s;
+}
+button:hover h5 {
+    box-shadow: 5px -5px 10px -2px rgba(34, 60, 80, 0.16);
+    transform:scale(1.010);
+}
+.arrayCards{
 }
 @media screen and (max-width: 900px) {
-    span.user-carousel-caption {
+    span .user-carousel-caption {
         font-size: 2.2vmax;
         width:40vmax;
         top:12vmax;

@@ -23,8 +23,8 @@ export class HttpService {
         })).pipe(finalize(() => { this.preloader.SetStatusPreloader(true) }));
     }
 
-    getHistonicCard(): Observable<HistonicCardComponent[]> {
-        return this.http.get('/api/Histonic?card=true').pipe(map((data: Object[]) => {
+    getHistonicCard(typeHistonic: string): Observable<HistonicCardComponent[]> {
+        return this.http.get('/api/Histonic?typeHistonic=' + typeHistonic).pipe(map((data: Object[]) => {
             return data.map(function (card) {
                 let buf = new HistonicCardComponent();
                 let bufImage = new ImageComponent();

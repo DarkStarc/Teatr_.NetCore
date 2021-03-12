@@ -9,12 +9,16 @@ import { HttpService } from '../../http.service';
     styleUrls:["perfomances.css"]
 })
 export class PerfomancesComponent implements OnInit {
-    public cards: HistonicCardComponent[];
-    private selectedScene: number = 1;
+    public bigSceneCards: HistonicCardComponent[];
+    public smallSceneCards: HistonicCardComponent[];
+    public forKidsCards: HistonicCardComponent[];
+
     constructor(private httpService: HttpService, public preloader: PreloaderService) { }
 
     ngOnInit() {
-        this.httpService.getHistonicCard().subscribe(data => this.cards = data);
+        this.httpService.getHistonicCard("Велика сцена").subscribe(data => this.bigSceneCards = data);
+        this.httpService.getHistonicCard("Мала сцена").subscribe(data => this.smallSceneCards = data);
+        this.httpService.getHistonicCard("Для дітей").subscribe(data => this.forKidsCards = data);
     }
 
 }

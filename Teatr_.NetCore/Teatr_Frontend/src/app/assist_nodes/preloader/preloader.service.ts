@@ -10,7 +10,7 @@ export class PreloaderService {
 
     private CheckStatusPreloader() {
        
-        if (this.currentCountVal == this.maxCountVal) {
+        if (this.currentCountVal >= this.maxCountVal) {
             this.isLoad = true;
 
         }

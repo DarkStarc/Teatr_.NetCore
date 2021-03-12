@@ -44,9 +44,9 @@ namespace Teatr.Models
 
             modelBuilder.Entity<TypeHistonic>().HasData(new TypeHistonic[]
             {
-                new TypeHistonic(){TypeHistonicId = 1,Name="Большая сцена"},
-                new TypeHistonic(){TypeHistonicId = 2,Name="Малая сцена"},
-                new TypeHistonic(){TypeHistonicId = 3,Name="Для детей"},
+                new TypeHistonic(){TypeHistonicId = 1,Name="Велика сцена"},
+                new TypeHistonic(){TypeHistonicId = 2,Name="Мала сцена"},
+                new TypeHistonic(){TypeHistonicId = 3,Name="Для дітей"},
 
             });
         }

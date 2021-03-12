@@ -4,10 +4,11 @@ let PerfomancesComponent = class PerfomancesComponent {
     constructor(httpService, preloader) {
         this.httpService = httpService;
         this.preloader = preloader;
-        this.selectedScene = 1;
     }
     ngOnInit() {
-        this.httpService.getHistonicCard().subscribe(data => this.cards = data);
+        this.httpService.getHistonicCard("Велика сцена").subscribe(data => this.bigSceneCards = data);
+        this.httpService.getHistonicCard("Мала сцена").subscribe(data => this.smallSceneCards = data);
+        this.httpService.getHistonicCard("Для дітей").subscribe(data => this.forKidsCards = data);
     }
 };
 PerfomancesComponent = __decorate([

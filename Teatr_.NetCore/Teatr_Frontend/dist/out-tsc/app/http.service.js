@@ -18,8 +18,8 @@ let HttpService = class HttpService {
             });
         })).pipe(finalize(() => { this.preloader.SetStatusPreloader(true); }));
     }
-    getHistonicCard() {
-        return this.http.get('/api/Histonic?card=true').pipe(map((data) => {
+    getHistonicCard(typeHistonic) {
+        return this.http.get('/api/Histonic?typeHistonic=' + typeHistonic).pipe(map((data) => {
             return data.map(function (card) {
                 let buf = new HistonicCardComponent();
                 let bufImage = new ImageComponent();

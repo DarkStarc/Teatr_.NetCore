@@ -22,10 +22,10 @@ export class PerfomancesModule {
 
         this.router.events.subscribe(event => {
             if (event instanceof NavigationStart && event.url == "/Perfomances") {
-                this.preloader.SetMaxCountToLoad(2);
+                this.preloader.SetMaxCountToLoad(4);
             }
         })
 
-        this.preloader.SetMaxCountToLoad(2);
+        this.preloader.SetMaxCountToLoad(4);
     }
 }

@@ -8,7 +8,7 @@ let PreloaderService = class PreloaderService {
         this.errorMessage = null;
     }
     CheckStatusPreloader() {
-        if (this.currentCountVal == this.maxCountVal) {
+        if (this.currentCountVal >= this.maxCountVal) {
             this.isLoad = true;
         }
         else {

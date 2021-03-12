@@ -32,9 +32,9 @@ namespace Teatr.Migrations
                 columns: new[] { "TypeHistonicId", "Name" },
                 values: new object[,]
                 {
-                    { 1, "Большая сцена" },
-                    { 2, "Малая сцена" },
-                    { 3, "Для детей" }
+                    { 1, "Велика сцена" },
+                    { 2, "Мала сцена" },
+                    { 3, "Для дітей" }
                 });
         }
 

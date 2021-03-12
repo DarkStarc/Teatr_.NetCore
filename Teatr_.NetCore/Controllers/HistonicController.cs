@@ -20,26 +20,27 @@ namespace Teatr.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetHistonic(int? count,bool card)
+        public async Task<IActionResult> GetHistonic(string typeHistonic, bool allInfo = false)
         {
 
-            IQueryable<Histonic> returnVal = db.Histonics.OrderBy(p => p.HistonicId);
+            IQueryable<Histonic> returnVal = db.Histonics.OrderBy(p => p.HistonicId).Include(p=>p.Type);
 
-            
-            if (count.HasValue)
+
+            if (String.IsNullOrWhiteSpace(typeHistonic) == false)
             {
-               returnVal = returnVal.Take(count.Value);
+                //need with type
+                returnVal = returnVal.Where(p => p.Type.Name.ToLower() == typeHistonic.ToLower());
             }
 
-            if (card)
+            if (allInfo)
             {
-                //all true
+                //all info needed
                return Ok(returnVal.Select(p =>
                     new { id = p.HistonicId, Name = p.Name, Description = p.Description, Preview = p.Preview }));
             }
 
             //Null count and card
-            return Ok(await db.Histonics.Include(p => p.Preview).ToListAsync());
+            return Ok(await returnVal.Include(p => p.Preview).ToListAsync());
         }
 
     }
