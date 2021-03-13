@@ -12,12 +12,12 @@ export interface IHistonic {
 }
 
 @Component({
-    selector: 'div.histonic',
+    selector: 'div.histonicCard',
     template:``,
 })
 
 @Injectable()
-export class HistonicComponent implements IHistonic {
+export class HistonicComponentCard implements IHistonic {
 
     set( id: number, Name: string, Description: string, Roles: string, Time: Date, VideoUrl: string, Images: ImageComponent[]) {
         this.id = id;

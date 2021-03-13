@@ -22,15 +22,22 @@
 button:focus{
     box-shadow:none !important;
 }
-button h5 {
-    border: 1px solid black;
-    box-shadow: 5px -5px 10px -6px rgba(34, 60, 80, 0.16);
+button.collapsed h6{
+    box-shadow:none;
+    border:0;
+}
+button h6 {
+    font-size:1.05rem;
+    color: #a3bf00;
+    border: 1px solid #a3bf00;
+    text-shadow: 3px -3px 5px rgba(153,153,153,0.18);
+    font-weight: 400;
+    box-shadow: 6px -5px 4px -7px rgba(34, 60, 80, 0.51);
     border-radius: 0.25rem;
     padding: 0.5rem;
-    transition-duration:0.1s;
+    transition-duration: 0.05s;
 }
-button:hover h5 {
-    box-shadow: 5px -5px 10px -2px rgba(34, 60, 80, 0.16);
+button:hover h6 {
     transform:scale(1.010);
 }
 .arrayCards{

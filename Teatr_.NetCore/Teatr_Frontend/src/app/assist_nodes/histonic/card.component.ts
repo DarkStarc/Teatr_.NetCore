@@ -3,11 +3,17 @@ import { ImageComponent } from '../image/image.component';
 
 @Component({
     selector: 'div.card',
-    templateUrl:'card.html',
+    template:`<a [routerLink]="['/Histonic',this.id]" style="text-decoration:none;color:black;">
+    <div class="image" [mxWidth]="width" [path]="preview.path" [title]="preview.title"></div>
+    <div class="mt-3">
+        <p class="text-center" style="font-size:1.4rem;font-weight:600;color:#a3bf00">{{name}}</p>
+        <p class="m-4" style="height:120px;text-overflow:ellipsis; overflow:hidden">{{description}}</p>
+    </div>
+</a>`,
 })
 
 @Injectable()
-export class HistonicCardComponent {
+export class CardComponent {
     @Input() id: number;
     @Input() name: string;
     @Input() description: string;

@@ -5,16 +5,16 @@ import { Routes, RouterModule, Router, NavigationStart } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { PerfomancesComponent } from './perfomances.component';
 import { ImageModule } from '../../assist_nodes/image/image.module';
-import { HistonicCardComponent } from '../../assist_nodes/histonic/card.component';
+import { CardComponent } from '../../assist_nodes/histonic/card.component';
 
 const moduleRoutes: Routes = [
     { path: '', component: PerfomancesComponent }
 ];
 
 @NgModule({
-    declarations: [PerfomancesComponent, HistonicCardComponent],
+    declarations: [PerfomancesComponent, CardComponent],
     imports: [HttpClientModule, ImageModule, CommonModule, RouterModule.forChild(moduleRoutes)],
-    exports: [PerfomancesComponent, HistonicCardComponent],
+    exports: [PerfomancesComponent, CardComponent],
 })
 
 export class PerfomancesModule {

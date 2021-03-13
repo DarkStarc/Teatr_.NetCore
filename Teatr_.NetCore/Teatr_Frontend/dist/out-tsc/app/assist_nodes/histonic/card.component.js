@@ -1,6 +1,6 @@
 import { __decorate } from "tslib";
 import { Component, Injectable, Input } from '@angular/core';
-let HistonicCardComponent = class HistonicCardComponent {
+let CardComponent = class CardComponent {
     constructor() {
         this.width = "auto";
     }
@@ -13,25 +13,31 @@ let HistonicCardComponent = class HistonicCardComponent {
 };
 __decorate([
     Input()
-], HistonicCardComponent.prototype, "id", void 0);
+], CardComponent.prototype, "id", void 0);
 __decorate([
     Input()
-], HistonicCardComponent.prototype, "name", void 0);
+], CardComponent.prototype, "name", void 0);
 __decorate([
     Input()
-], HistonicCardComponent.prototype, "description", void 0);
+], CardComponent.prototype, "description", void 0);
 __decorate([
     Input()
-], HistonicCardComponent.prototype, "preview", void 0);
+], CardComponent.prototype, "preview", void 0);
 __decorate([
     Input()
-], HistonicCardComponent.prototype, "width", void 0);
-HistonicCardComponent = __decorate([
+], CardComponent.prototype, "width", void 0);
+CardComponent = __decorate([
     Component({
         selector: 'div.card',
-        templateUrl: 'card.html',
+        template: `<a [routerLink]="['/Histonic',this.id]" style="text-decoration:none;color:black;">
+    <div class="image" [mxWidth]="width" [path]="preview.path" [title]="preview.title"></div>
+    <div class="mt-3">
+        <p class="text-center" style="font-size:1.4rem;font-weight:600;color:#a3bf00">{{name}}</p>
+        <p class="m-4" style="height:120px;text-overflow:ellipsis; overflow:hidden">{{description}}</p>
+    </div>
+</a>`,
     }),
     Injectable()
-], HistonicCardComponent);
-export { HistonicCardComponent };
+], CardComponent);
+export { CardComponent };
 //# sourceMappingURL=card.component.js.map

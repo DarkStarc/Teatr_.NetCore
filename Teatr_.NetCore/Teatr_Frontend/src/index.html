@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link type="text/css" href="/app/styles.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;600&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <app-root></app-root>
@@ -23,7 +23,6 @@
         }
 
         .brand {
-            display: flex;
             z-index: 10001;
             position: fixed;
             align-items: center;
@@ -35,6 +34,15 @@
             right: 0;
             bottom: 0;
             background-color: white;
+        }
+        .brand svg{
+            display:block;
+            position:absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin:auto;
         }
         #bottomCircle1 {
             animation: BottomCircleLoading 1s ease-in;

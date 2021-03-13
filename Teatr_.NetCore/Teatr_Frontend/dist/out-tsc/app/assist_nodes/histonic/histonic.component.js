@@ -1,6 +1,6 @@
 import { __decorate } from "tslib";
 import { Component, Injectable, Input } from '@angular/core';
-let HistonicComponent = class HistonicComponent {
+let HistonicComponentCard = class HistonicComponentCard {
     set(id, Name, Description, Roles, Time, VideoUrl, Images) {
         this.id = id;
         this.Name = Name;
@@ -13,31 +13,31 @@ let HistonicComponent = class HistonicComponent {
 };
 __decorate([
     Input()
-], HistonicComponent.prototype, "id", void 0);
+], HistonicComponentCard.prototype, "id", void 0);
 __decorate([
     Input()
-], HistonicComponent.prototype, "VideoUrl", void 0);
+], HistonicComponentCard.prototype, "VideoUrl", void 0);
 __decorate([
     Input()
-], HistonicComponent.prototype, "Name", void 0);
+], HistonicComponentCard.prototype, "Name", void 0);
 __decorate([
     Input()
-], HistonicComponent.prototype, "Description", void 0);
+], HistonicComponentCard.prototype, "Description", void 0);
 __decorate([
     Input()
-], HistonicComponent.prototype, "Roles", void 0);
+], HistonicComponentCard.prototype, "Roles", void 0);
 __decorate([
     Input()
-], HistonicComponent.prototype, "Images", void 0);
+], HistonicComponentCard.prototype, "Images", void 0);
 __decorate([
     Input()
-], HistonicComponent.prototype, "Time", void 0);
-HistonicComponent = __decorate([
+], HistonicComponentCard.prototype, "Time", void 0);
+HistonicComponentCard = __decorate([
     Component({
         selector: 'div.histonic',
         template: ``,
     }),
     Injectable()
-], HistonicComponent);
-export { HistonicComponent };
+], HistonicComponentCard);
+export { HistonicComponentCard };
 //# sourceMappingURL=histonic.component.js.map

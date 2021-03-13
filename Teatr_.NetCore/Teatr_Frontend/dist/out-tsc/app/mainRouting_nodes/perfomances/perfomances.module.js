@@ -5,7 +5,7 @@ import { RouterModule, NavigationStart } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { PerfomancesComponent } from './perfomances.component';
 import { ImageModule } from '../../assist_nodes/image/image.module';
-import { HistonicCardComponent } from '../../assist_nodes/histonic/card.component';
+import { CardComponent } from '../../assist_nodes/histonic/card.component';
 const moduleRoutes = [
     { path: '', component: PerfomancesComponent }
 ];
@@ -15,17 +15,17 @@ let PerfomancesModule = class PerfomancesModule {
         this.router = router;
         this.router.events.subscribe(event => {
             if (event instanceof NavigationStart && event.url == "/Perfomances") {
-                this.preloader.SetMaxCountToLoad(2);
+                this.preloader.SetMaxCountToLoad(4);
             }
         });
-        this.preloader.SetMaxCountToLoad(2);
+        this.preloader.SetMaxCountToLoad(4);
     }
 };
 PerfomancesModule = __decorate([
     NgModule({
-        declarations: [PerfomancesComponent, HistonicCardComponent],
+        declarations: [PerfomancesComponent, CardComponent],
         imports: [HttpClientModule, ImageModule, CommonModule, RouterModule.forChild(moduleRoutes)],
-        exports: [PerfomancesComponent, HistonicCardComponent],
+        exports: [PerfomancesComponent, CardComponent],
     })
 ], PerfomancesModule);
 export { PerfomancesModule };

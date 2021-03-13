@@ -32,7 +32,7 @@ namespace Teatr.Controllers
                 returnVal = returnVal.Where(p => p.Type.Name.ToLower() == typeHistonic.ToLower());
             }
 
-            if (allInfo)
+            if (!allInfo)
             {
                 //all info needed
                return Ok(returnVal.Select(p =>
