@@ -27,12 +27,12 @@ button.collapsed h6{
     border:0;
 }
 button h6 {
-    font-size:1.05rem;
-    color: #a3bf00;
+    font-size: 1.05rem;
+    color: #95af00;
     border: 1px solid #a3bf00;
     text-shadow: 3px -3px 5px rgba(153,153,153,0.18);
-    font-weight: 400;
-    box-shadow: 6px -5px 4px -7px rgba(34, 60, 80, 0.51);
+    font-weight: 600;
+    box-shadow: 6px -2px 4px -7px rgb(34, 60, 80);
     border-radius: 0.25rem;
     padding: 0.5rem;
     transition-duration: 0.05s;
@@ -50,6 +50,9 @@ button:hover h6 {
     }
     div.carousel-inner{
         height:40vmax!important;
+    }
+    .card {
+        max-width: 85vw;
     }
     
 }

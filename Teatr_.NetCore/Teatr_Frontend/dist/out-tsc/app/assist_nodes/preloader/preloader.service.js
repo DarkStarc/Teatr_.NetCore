@@ -31,7 +31,7 @@ let PreloaderService = class PreloaderService {
         }
         //state
         this.CheckStatusPreloader();
-        console.log(this.currentCountVal, this.maxCountVal);
+        // console.log(this.currentCountVal, this.maxCountVal);
     }
     GetStatus() {
         return this.isLoad;

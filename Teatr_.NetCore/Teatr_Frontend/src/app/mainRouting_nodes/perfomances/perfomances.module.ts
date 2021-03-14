@@ -5,7 +5,7 @@ import { Routes, RouterModule, Router, NavigationStart } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { PerfomancesComponent } from './perfomances.component';
 import { ImageModule } from '../../assist_nodes/image/image.module';
-import { CardComponent } from '../../assist_nodes/histonic/card.component';
+import { CardComponent } from '../../assist_nodes/histonic_cards/card.component';
 
 const moduleRoutes: Routes = [
     { path: '', component: PerfomancesComponent }
