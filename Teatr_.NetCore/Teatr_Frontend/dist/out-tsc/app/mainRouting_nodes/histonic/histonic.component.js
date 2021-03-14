@@ -4,7 +4,7 @@ let HistonicComponent = class HistonicComponent {
 };
 HistonicComponent = __decorate([
     Component({
-        selector: '',
+        selector: 'histonic',
         template: ''
     })
 ], HistonicComponent);

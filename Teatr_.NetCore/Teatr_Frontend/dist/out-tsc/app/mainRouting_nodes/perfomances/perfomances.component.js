@@ -10,6 +10,9 @@ let PerfomancesComponent = class PerfomancesComponent {
         this.httpService.getHistonicCard("Мала сцена").subscribe(data => this.smallSceneCards = data);
         this.httpService.getHistonicCard("Для дітей").subscribe(data => this.forKidsCards = data);
     }
+    ngAfterViewChecked() {
+        console.log(this.bigSceneCards);
+    }
 };
 PerfomancesComponent = __decorate([
     Component({

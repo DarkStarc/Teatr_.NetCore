@@ -9,7 +9,8 @@ import { PreloaderService } from './assist_nodes/preloader/preloader.service';
 const appRoute = [
     { path: "", loadChildren: () => import("./mainRouting_nodes/main/main.module").then(m => m.MainModule) },
     { path: "Perfomances", loadChildren: () => import("./MainRouting_nodes/perfomances/perfomances.module").then(m => m.PerfomancesModule) },
-    { path: "Histonic", loadChildren: () => import("./MainRouting_nodes/histonic/histonic.module").then(m => m.HistonicModule) }
+    { path: "Histonic/:id", loadChildren: () => import("./MainRouting_nodes/histonic/histonic.module").then(m => m.HistonicModule) },
+    { path: '**', redirectTo: '/' }
 ];
 let AppModule = class AppModule {
     constructor(preloader) {

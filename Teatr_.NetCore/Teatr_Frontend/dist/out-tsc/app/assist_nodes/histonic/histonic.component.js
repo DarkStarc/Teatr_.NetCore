@@ -34,7 +34,7 @@ __decorate([
 ], HistonicComponentCard.prototype, "Time", void 0);
 HistonicComponentCard = __decorate([
     Component({
-        selector: 'div.histonic',
+        selector: 'div.histonicCard',
         template: ``,
     }),
     Injectable()

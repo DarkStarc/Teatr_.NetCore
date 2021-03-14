@@ -24,7 +24,7 @@ let HttpService = class HttpService {
                 let buf = new CardComponent();
                 let bufImage = new ImageComponent();
                 bufImage.set(card["preview"]["path"], card["preview"]["title"]);
-                buf.set(card["id"], card["name"], card["description"], bufImage);
+                buf.set(card["histonicId"], card["name"], card["description"], bufImage);
                 return buf;
             });
         })).pipe(finalize(() => { this.preloader.SetStatusPreloader(true); }));

@@ -1,8 +1,7 @@
 import { __decorate } from "tslib";
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ActivatedRoute, NavigationStart, RouterModule } from "@angular/router";
-import { ImageModule } from '../../assist_nodes/image/image.module';
+import { NavigationStart, RouterModule } from "@angular/router";
 import { HistonicComponent } from './histonic.component';
 const moduleRoutes = [
     { path: '', component: HistonicComponent }
@@ -20,14 +19,14 @@ let HistonicModule = class HistonicModule {
         this.preloader.SetMaxCountToLoad(2);
     }
     ngOnInit() {
-        this.params.queryParams.subscribe(param => this.id = param["id"]);
+        this.params.params.subscribe(param => this.id = param["id"]);
         console.log(this.id);
     }
 };
 HistonicModule = __decorate([
     NgModule({
         declarations: [HistonicComponent],
-        imports: [ImageModule, , CommonModule, RouterModule.forChild(moduleRoutes), ActivatedRoute],
+        imports: [CommonModule, RouterModule.forChild(moduleRoutes),],
         exports: [HistonicComponent]
     })
 ], HistonicModule);
