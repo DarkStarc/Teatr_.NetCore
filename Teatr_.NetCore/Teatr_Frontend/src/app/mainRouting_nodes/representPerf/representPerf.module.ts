@@ -2,6 +2,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, Router, NavigationStart } from '@angular/router';
+import { CardsModule } from '../../assist_nodes/histonic_cards/cards.module';
 import { PreloaderService } from '../../assist_nodes/preloader/preloader.service';
 import { HttpService } from '../../http.service';
 import { RepresentPerfComponent } from './representPerf.component';
@@ -13,7 +14,7 @@ const moduleRoutes: Routes = [
 
 @NgModule({
     declarations: [RepresentPerfComponent],
-    imports: [HttpClientModule, CommonModule, RouterModule.forChild(moduleRoutes)],
+    imports: [HttpClientModule, CardsModule, CommonModule, RouterModule.forChild(moduleRoutes)],
     providers: [HttpService],
     exports: [RepresentPerfComponent],
 })

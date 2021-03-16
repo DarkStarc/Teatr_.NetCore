@@ -6,11 +6,21 @@ import { HttpService } from '../../http.service';
 
 @Component({
     selector: 'represent',
-    template: ``,
+    templateUrl: `representPerf.html`,
+    styles: [`
+
+        .main{
+            background-color: #edecec5e;
+            box-shadow: 2px 5px 20px 0px rgba(34, 60, 80, 0.1);
+            background-clip: border-box;
+            border: 1px solid rgba(0,0,0,.125);
+            border-radius: .25rem;
+        }
+    `]
 })
 export class RepresentPerfComponent implements OnInit {
     public id: number;
-    public histonicCard: HistonicComponentCard;
+    public histonicCard: HistonicComponentCard = new HistonicComponentCard();
 
     constructor(private params: ActivatedRoute, private httpClient: HttpService) { }
 

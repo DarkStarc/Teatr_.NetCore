@@ -50,7 +50,7 @@ export class HttpService {
             });
 
             //data histonic card
-            buf.set(data["histonicId"],data["name"], data["description"], data["roles"], data["time"], data["videoUrl"], bufImages);
+            buf.set(data["histonicId"],data["name"], data["description"], data["roles"],data["type"]["name"], data["time"], data["videoUrl"], bufImages);
             return buf;
 
         })).pipe(finalize(() => { this.preloader.SetStatusPreloader(true) }));

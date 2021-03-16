@@ -23,11 +23,11 @@ export class MainModule {
 
         this.router.events.subscribe(event => {
             if (event instanceof NavigationStart && event.url == "/") {
-               this.preloader.SetMaxCountToLoad(2);
+               this.preloader.SetMaxCountToLoad(1);//when we routing
             }
         })
-
-        this.preloader.SetMaxCountToLoad(2);
+        //when we create
+        this.preloader.SetMaxCountToLoad(1,true);
     }
 
 }

@@ -5,8 +5,10 @@ import { Router } from '@angular/router';
 export class PreloaderService {
     private isLoad = false;
     private maxCountVal = 1;
+    private fistLoad = 0;
     private currentCountVal = 0;
     private errorMessage: string = null;
+
 
     private CheckStatusPreloader() {
        
@@ -41,18 +43,31 @@ export class PreloaderService {
         //state
         this.CheckStatusPreloader();
 
-       // console.log(this.currentCountVal, this.maxCountVal);
+        console.log(this.currentCountVal, this.maxCountVal);
     }
 
     GetStatus(): boolean {
         return this.isLoad;
     }
 
-    SetMaxCountToLoad(val: number) {
-        //console.log("setPreloader", val);
+    SetFirstLoadCount(val: number) {
+        //called in main module, other need to wait child modules so maxCountVal set to unreal val, in childModule it be reset to other val
+        this.fistLoad = val;
+        
+        this.maxCountVal = val + 1;
+    }
 
-        this.currentCountVal = 0;
-        this.maxCountVal = val;
+    SetMaxCountToLoad(val: number, firstLoad: boolean = false) {
+        console.log("setPreloader", val);
+
+        if (firstLoad) {
+            this.maxCountVal = this.fistLoad + val;
+        }
+        else {
+            this.currentCountVal = 0;
+            this.maxCountVal = val;
+        }
+
 
         this.CheckStatusPreloader();
     }

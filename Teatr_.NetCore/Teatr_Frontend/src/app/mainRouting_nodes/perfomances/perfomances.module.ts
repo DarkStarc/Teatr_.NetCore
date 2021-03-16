@@ -6,15 +6,16 @@ import { CommonModule } from '@angular/common';
 import { PerfomancesComponent } from './perfomances.component';
 import { ImageModule } from '../../assist_nodes/image/image.module';
 import { CardComponent } from '../../assist_nodes/histonic_cards/card.component';
+import { CardsModule } from '../../assist_nodes/histonic_cards/cards.module';
 
 const moduleRoutes: Routes = [
     { path: '', component: PerfomancesComponent }
 ];
 
 @NgModule({
-    declarations: [PerfomancesComponent, CardComponent],
-    imports: [HttpClientModule, ImageModule, CommonModule, RouterModule.forChild(moduleRoutes)],
-    exports: [PerfomancesComponent, CardComponent],
+    declarations: [PerfomancesComponent],
+    imports: [HttpClientModule, CardsModule, ImageModule, CommonModule, RouterModule.forChild(moduleRoutes)],
+    exports: [PerfomancesComponent],
 })
 
 export class PerfomancesModule {
@@ -22,10 +23,10 @@ export class PerfomancesModule {
 
         this.router.events.subscribe(event => {
             if (event instanceof NavigationStart && event.url == "/Perfomances") {
-                this.preloader.SetMaxCountToLoad(4);
+                this.preloader.SetMaxCountToLoad(3);//when we routing
             }
         })
-
-        this.preloader.SetMaxCountToLoad(4);
+        //when create object
+        this.preloader.SetMaxCountToLoad(3,true);
     }
 }

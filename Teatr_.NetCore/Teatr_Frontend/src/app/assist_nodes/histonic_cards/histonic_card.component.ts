@@ -1,41 +1,46 @@
 ﻿import { Component, Injectable, Input } from '@angular/core';
 import { ImageComponent } from '../image/image.component';
 
-export interface IHistonic {
-    id: number;
-    VideoUrl: string;
-    Name: string;
-    Description: string;
-    Roles: string;
-    Images: ImageComponent[]
-    Time: Date;
-}
 
 @Component({
     selector: 'div.histonicCard',
-    template:``,
+    templateUrl: `histonic_card.html`,
+    styles: [`
+        .typeScene span{
+            color:white;
+            background-color:#95af00;
+            border-radius:0.75rem;
+            margin-left:-15%;
+            font-size:16px;
+        }
+        .typeScene{
+           transform:rotate(-25deg);
+
+        }
+    `]
 })
 
 @Injectable()
-export class HistonicComponentCard implements IHistonic {
+export class HistonicComponentCard {
 
-    set( id: number, Name: string, Description: string, Roles: string, Time: Date, VideoUrl: string, Images: ImageComponent[]) {
+    set( id: number, Name: string, Description: string, Roles: string,TypeScene:string, Time: Date, VideoUrl: string, Images: ImageComponent[]) {
         this.id = id;
-        this.Name = Name;
-        this.Description = Description;
-        this.Roles = Roles;
-        this.Time = Time;
-        this.VideoUrl = VideoUrl;
-        this.Images = Images;
+        this.name = Name;
+        this.description = Description;
+        this.roles = Roles;
+        this.typeScene = TypeScene;
+        this.time = Time;
+        this.videoUrl = VideoUrl;
+        this.images = Images;
     }
 
     @Input() id: number;
-    @Input() VideoUrl: string;
-    @Input() Name: string;
-    @Input() Description: string;
-    @Input() Roles: string;
-    @Input() Images: ImageComponent[]
-    @Input() Time: Date;
-
+    @Input() videoUrl: string;
+    @Input() name: string;
+    @Input() description: string;
+    @Input() roles: string;
+    @Input() images: ImageComponent[]
+    @Input() time: Date;
+    @Input() typeScene: string;
    
 }

@@ -15,10 +15,11 @@ let PerfomancesModule = class PerfomancesModule {
         this.router = router;
         this.router.events.subscribe(event => {
             if (event instanceof NavigationStart && event.url == "/Perfomances") {
-                this.preloader.SetMaxCountToLoad(4);
+                this.preloader.SetMaxCountToLoad(3); //when we routing
             }
         });
-        this.preloader.SetMaxCountToLoad(4);
+        //when create object
+        this.preloader.SetMaxCountToLoad(3, true);
     }
 };
 PerfomancesModule = __decorate([

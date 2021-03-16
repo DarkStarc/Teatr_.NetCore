@@ -1,4 +1,4 @@
-﻿import { Component, Injectable, Input, ViewChild } from '@angular/core';
+﻿import { Component, Injectable, Input } from '@angular/core';
 import { ImageComponent } from '../image/image.component';
 
 @Component({
