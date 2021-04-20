@@ -7,20 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Teatr_Frontend\src\app\assist_nodes\histonic_cards\card.component.ts" />
-    <None Remove="Teatr_Frontend\src\app\assist_nodes\histonic_cards\cards.module.ts" />
-    <None Remove="Teatr_Frontend\src\app\assist_nodes\image\image.module.ts" />
-    <None Remove="Teatr_Frontend\src\app\mainRouting_nodes\gfd.module.ts" />
-    <None Remove="Teatr_Frontend\src\app\mainRouting_nodes\perfomances\perfomances.component.ts" />
-    <None Remove="Teatr_Frontend\src\app\mainRouting_nodes\perfomances\perfomances.module.ts" />
-    <None Remove="Teatr_Frontend\src\app\assist_nodes\preloader\preloader.component.ts" />
-    <None Remove="Teatr_Frontend\src\app\assist_nodes\preloader\preloader.service.ts" />
-    <None Remove="Teatr_Frontend\src\app\mainRouting_nodes\representPerf\representPerf.component.ts" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.SpaServices" Version="3.1.12" />
-    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="5.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.3">
@@ -30,25 +16,7 @@
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Teatr_Frontend\src\assets\script\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <TypeScriptCompile Include="Teatr_Frontend\src\app\assist_nodes\histonic_cards\card.component.ts" />
-    <TypeScriptCompile Include="Teatr_Frontend\src\app\assist_nodes\histonic_cards\cards.module.ts" />
-    <TypeScriptCompile Include="Teatr_Frontend\src\app\assist_nodes\image\image.component.ts" />
-    <TypeScriptCompile Include="Teatr_Frontend\src\app\assist_nodes\image\image.module.ts" />
-    <TypeScriptCompile Include="Teatr_Frontend\src\app\mainRouting_nodes\representPerf\representPerf.component.ts" />
-    <TypeScriptCompile Include="Teatr_Frontend\src\app\mainRouting_nodes\representPerf\representPerf.module.ts" />
-    <TypeScriptCompile Include="Teatr_Frontend\src\app\mainRouting_nodes\perfomances\perfomances.component.ts" />
-    <TypeScriptCompile Include="Teatr_Frontend\src\app\mainRouting_nodes\perfomances\perfomances.module.ts" />
-    <TypeScriptCompile Include="Teatr_Frontend\src\app\assist_nodes\preloader\preloader.component.ts" />
-    <TypeScriptCompile Include="Teatr_Frontend\src\app\assist_nodes\preloader\preloader.service.ts" />
-  </ItemGroup>
-
-  <ProjectExtensions><VisualStudio><UserProperties teatr_3frontend_4angular_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+  <ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
 
 
 </Project>

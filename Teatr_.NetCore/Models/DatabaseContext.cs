@@ -14,6 +14,7 @@ namespace Teatr.Models
         public DbSet<DateHistonic> Dates { get; set; }
         public DatabaseContext(DbContextOptions<DatabaseContext> options):base(options) 
         {
+            Database.EnsureCreated();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -35,7 +36,8 @@ namespace Teatr.Models
             {
                 new Histonic(){HistonicId = 1, Name = "Test", Description = "Lorem ipsum dolor sit amet," +
                 " consectetur adipiscing elit. In id odio sed quam ultricies vehicula. Class aptent taciti" +
-                " sociosqu ad litora torquent per conubia nostra.", PreviewId = 5,TypeId=1}
+                " sociosqu ad litora torquent per conubia nostra.", PreviewId = 5,TypeId=1,Author="Майкл Фрейн \nкомедія на 2 дії"
+                ,ProductionAuthor = "Режисер - Олександр Ковшун \nСценографи - Тетяна Савіна,Тамара Лєвшина \nХудожник з костюмів Аліна Горбунова \nТривалість вистави - 2 год. 30 хв. \nПрем’єра - 27 вересня 2019 року"}
             });
 
             modelBuilder.Entity<DateHistonic>().HasData(new DateHistonic[] {

@@ -13,6 +13,8 @@ namespace Teatr.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public string Roles { get; set; }
+        public string Author { get; set; }
+        public string ProductionAuthor { get; set; }
         public string UrlToTraller { get; set; }
         public DateTimeOffset? TimeDuration { get; set; }
         public List<Image> Images { get; set; }

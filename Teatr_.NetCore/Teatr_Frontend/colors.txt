@@ -1,5 +1,0 @@
-﻿//background #ECF2BD
-//buttons background #CDD973
-//button font #025940
-//font  
-return 

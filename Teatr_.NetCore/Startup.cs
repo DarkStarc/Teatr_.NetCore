@@ -3,13 +3,12 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
 using Teatr.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.SpaServices;
-using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.FileProviders;
 using System.IO;
+using Teatr.Interfaces;
+using Teatr.Repository;
 
 namespace Teatr_.NetCore
 {
@@ -32,10 +31,7 @@ namespace Teatr_.NetCore
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
 
-            services.AddSpaStaticFiles(configuration =>
-            {
-                configuration.RootPath = "Teatr_Frontend/dist";
-            });
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,16 +59,6 @@ namespace Teatr_.NetCore
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-            });
-
-            app.UseSpa(spa =>
-            {
-                spa.Options.SourcePath = "Teatr_Frontend";
-
-                if (env.IsDevelopment())
-                {
-                    spa.UseAngularCliServer(npmScript: "start");
-                }
             });
 
         }

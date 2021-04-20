@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Teatr.Models;
 
 namespace Teatr.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20210317184258_addAutor")]
+    partial class addAutor
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -67,7 +69,7 @@ namespace Teatr.Migrations
                         new
                         {
                             DateHistonicId = 1,
-                            Time = new DateTime(2021, 3, 17, 21, 28, 21, 420, DateTimeKind.Local).AddTicks(9459)
+                            Time = new DateTime(2021, 3, 17, 20, 42, 57, 164, DateTimeKind.Local).AddTicks(1226)
                         });
                 });
 
@@ -89,9 +91,6 @@ namespace Teatr.Migrations
 
                     b.Property<int?>("PreviewId")
                         .HasColumnType("int");
-
-                    b.Property<string>("ProductionAuthor")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Roles")
                         .HasColumnType("nvarchar(max)");
@@ -117,11 +116,10 @@ namespace Teatr.Migrations
                         new
                         {
                             HistonicId = 1,
-                            Author = "Майкл Фрейн \nкомедія на 2 дії",
+                            Author = "Майкл Фрейн '\n' комедія на 2 дії",
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In id odio sed quam ultricies vehicula. Class aptent taciti sociosqu ad litora torquent per conubia nostra.",
                             Name = "Test",
                             PreviewId = 5,
-                            ProductionAuthor = "Режисер - Олександр Ковшун \nСценографи - Тетяна Савіна,Тамара Лєвшина \nХудожник з костюмів Аліна Горбунова \nТривалість вистави - 2 год. 30 хв. \nПрем’єра - 27 вересня 2019 року",
                             TypeId = 1
                         });
                 });
