@@ -16,18 +16,33 @@ namespace Teatr.Repository
             this.db = _db;
         }
 
+        public async Task<Histonic> GetFullInfo(int id)
+        {
+            return await db.Histonics.Include(p=>p.Images)
+                    .Include(p=>p.Preview)
+                    .Include(p=>p.Type)
+                    .Include(p=>p.Dates)
+                    .FirstOrDefaultAsync(p => p.HistonicId == id);
+        }
         public async Task<IEnumerable<Histonic>> GetAll()
         {
             return await db.Histonics.ToListAsync();
         }
 
-        public async Task<IEnumerable<Histonic>> GetWithType(int typeId)
+        public async Task<IEnumerable<Histonic>> GetWithType(int typeId, bool fullIncludes = false)
         {
-            return await db.Histonics.Where(p => p.TypeId == typeId).ToListAsync();
-        }
-        public async Task<IEnumerable<Histonic>> GetWithType(int typeId, Expression<Func<Histonic, object>> includeQuery)
-        {
-            return await db.Histonics.Include(includeQuery).Where(p => p.TypeId == typeId).ToListAsync();
+            var query = db.Histonics.Where(p => p.TypeId == typeId);
+
+            if (fullIncludes)
+            {
+                query = query.Include(p => p.Dates)
+                .Include(p => p.Images)
+                .Include(p => p.Preview)
+                .Include(p => p.Type)
+                .Include(p => p.Dates);
+            }
+
+            return await query.ToListAsync();
         }
     }
 }

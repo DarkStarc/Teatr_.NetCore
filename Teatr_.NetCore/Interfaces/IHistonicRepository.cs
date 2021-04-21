@@ -9,7 +9,7 @@ namespace Teatr.Interfaces
     public interface IHistonicRepository:IGenericRepository<Histonic>
     {
         public Task<IEnumerable<Histonic>> GetAll();
-        public Task<IEnumerable<Histonic>> GetWithType(int typeId);
-        public Task<IEnumerable<Histonic>> GetWithType(int typeId, Expression<Func<Histonic, object>> includeQuery);
+        public Task<Histonic> GetFullInfo(int id);
+        public Task<IEnumerable<Histonic>> GetWithType(int typeId,bool fullIncludes = false);
     }
 }

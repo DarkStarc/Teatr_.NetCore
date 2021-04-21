@@ -33,7 +33,7 @@ namespace Teatr.Controllers
                 }
                 else
                 {
-                    return Ok(await unitOfWork.HistonicRepository.GetWithType(type.TypeHistonicId, p => p.Type));
+                    return Ok(await unitOfWork.HistonicRepository.GetWithType(type.TypeHistonicId, true));
                 }
                 
             }
@@ -47,7 +47,21 @@ namespace Teatr.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetHistonicWithId(int id, bool allInfo = false)
         {
-            return Ok(await unitOfWork.HistonicRepository.Get(id));
+            if (id > 0)
+            {
+                if (allInfo == true)
+                {
+                    return Ok(await unitOfWork.HistonicRepository.GetFullInfo(id));
+                }
+                else
+                {
+                    return Ok(await unitOfWork.HistonicRepository.Get(id));
+                }
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
     }
 }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Teatr.Interfaces;
 using Teatr.Models;
@@ -22,7 +23,6 @@ namespace Teatr.Repository
         {
             return db.Find<TEntity>(id);
         }
-
         public async Task<bool> RemoveAsync(int id)
         {
             TEntity obj = await this.Get(id);
