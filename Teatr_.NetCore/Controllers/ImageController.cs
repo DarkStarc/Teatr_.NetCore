@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Teatr.Models;
+using Teatr.Interfaces;
+using Teatr.Services;
 
 namespace Teatr.Controllers
 {
@@ -14,33 +16,24 @@ namespace Teatr.Controllers
     [ApiController]
     public class ImageController : Controller
     {
-        private readonly DatabaseContext db;
-        public ImageController(DatabaseContext _db)
+        private readonly ImageService imageService;
+        public ImageController(ImageService _imageService)
         {
-            this.db = _db;
+            this.imageService = _imageService;
         }
 
         [HttpGet]
         public async Task<IActionResult> ImagePathList(string usedFor,[FromQuery(Name ="id")] int[] id)
         {
 
-            if (!String.IsNullOrWhiteSpace(usedFor))
+            if (!String.IsNullOrWhiteSpace(usedFor) || id.Length > 0)
             {
-                if (usedFor.ToLower() == "histonic" && id != null) // return paths with id
-                {
-                    return Ok(await db.Histonics.Where(p => id.Contains(p.HistonicId))
-                       .Include(p => p.Images)
-                       .Select(p => p.Images.Select(p => new { path = p.Path, title = p.Title }))
-                       .ToListAsync());
-                }
-
-                //return paths with used
-                return Ok(await db.Images.Where(p => p.UsedFor.ToLower() == usedFor.ToLower())
-                    .Select(p => new { path = p.Path,title = p.Title })
-                    .ToListAsync());
+                return Ok(await this.imageService.GetImagesAsync(usedFor, id));
             }
-
-            return BadRequest();
+            else
+            {
+                return BadRequest();
+            }
         }
     }
 }

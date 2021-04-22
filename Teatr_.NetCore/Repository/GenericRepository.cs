@@ -12,20 +12,19 @@ namespace Teatr.Repository
     public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
         protected DatabaseContext db;
-
         public async Task<TEntity> AddAsync(TEntity obj)
         {
-            db.AddAsync(obj);
+            await db.AddAsync(obj);
             return obj;
         }
 
-        public async Task<TEntity> Get(int id)
+        public async Task<TEntity> GetAsync(int id)
         {
-            return db.Find<TEntity>(id);
+            return await db.FindAsync<TEntity>(id);
         }
         public async Task<bool> RemoveAsync(int id)
         {
-            TEntity obj = await this.Get(id);
+            TEntity obj = await this.GetAsync(id);
             db.Remove(obj);
             return true;
         }

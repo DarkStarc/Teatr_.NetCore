@@ -11,6 +11,7 @@ namespace Teatr.Repository
     {
         private readonly DatabaseContext db;
 
+        private IImageRepository imageRepository;
         private IHistonicRepository histonicRepository;
         private ITypeHistonicRepository typeHistonicRepository;
         public UnitOfWork(DatabaseContext _db)
@@ -33,6 +34,14 @@ namespace Teatr.Repository
                 if (this.typeHistonicRepository == null) this.typeHistonicRepository = new TypeHistonicRepository(db);
                 return this.typeHistonicRepository;
             }   
+        }
+        public IImageRepository ImageRepository
+        {
+            get
+            {
+                if (this.imageRepository == null) this.imageRepository = new ImageRepository(db);
+                return this.ImageRepository;
+            }
         }
 
         public async Task<int> SaveChangesAsync()

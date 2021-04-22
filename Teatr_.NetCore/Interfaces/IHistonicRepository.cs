@@ -8,8 +8,8 @@ namespace Teatr.Interfaces
 {
     public interface IHistonicRepository:IGenericRepository<Histonic>
     {
-        public Task<IEnumerable<Histonic>> GetAll();
-        public Task<Histonic> GetFullInfo(int id);
-        public Task<IEnumerable<Histonic>> GetWithType(int typeId,bool fullIncludes = false);
+        public Task<IEnumerable<Histonic>> GetAllAsync();
+        public Task<Histonic> GetFullInfoAsync(int id);
+        public Task<IEnumerable<Histonic>> GetWithTypeAsync(int typeId,bool fullIncludes = false);
     }
 }

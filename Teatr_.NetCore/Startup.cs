@@ -9,6 +9,8 @@ using Microsoft.Extensions.FileProviders;
 using System.IO;
 using Teatr.Interfaces;
 using Teatr.Repository;
+using Teatr.Services;
+using Microsoft.Extensions.Logging;
 
 namespace Teatr_.NetCore
 {
@@ -32,11 +34,13 @@ namespace Teatr_.NetCore
             });
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<HistonicService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+          
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

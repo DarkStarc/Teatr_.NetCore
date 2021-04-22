@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Teatr.Interfaces;
 using Teatr.Models;
+using Teatr.Services;
 
 namespace Teatr.Controllers
 {
@@ -14,10 +15,10 @@ namespace Teatr.Controllers
     [ApiController]
     public class HistonicController : Controller
     {
-        public IUnitOfWork unitOfWork;
-        public HistonicController(IUnitOfWork _unitOfWork)
+        private readonly HistonicService histonicService;
+        public HistonicController(HistonicService _histonicService)
         {
-            this.unitOfWork = _unitOfWork;
+            this.histonicService = _histonicService;
         }
 
         [HttpGet]
@@ -25,19 +26,9 @@ namespace Teatr.Controllers
         {
             if (String.IsNullOrWhiteSpace(typeHistonic) == false)
             {
-                TypeHistonic type = unitOfWork.TypeHistonicRepository.GetTypeWithName(typeHistonic);
-
-                if (allInfo)
-                {
-                    return Ok(await unitOfWork.HistonicRepository.GetWithType(type.TypeHistonicId));
-                }
-                else
-                {
-                    return Ok(await unitOfWork.HistonicRepository.GetWithType(type.TypeHistonicId, true));
-                }
-                
+                return Ok(await histonicService.GetWithTypeAsync(typeHistonic, allInfo));
             }
-            else //typeHistonic empty
+            else 
             {
                 return BadRequest();
             }
@@ -49,14 +40,7 @@ namespace Teatr.Controllers
         {
             if (id > 0)
             {
-                if (allInfo == true)
-                {
-                    return Ok(await unitOfWork.HistonicRepository.GetFullInfo(id));
-                }
-                else
-                {
-                    return Ok(await unitOfWork.HistonicRepository.Get(id));
-                }
+                return Ok(await this.histonicService.GetHistonicWithIdAsync(id, allInfo));
             }
             else
             {
